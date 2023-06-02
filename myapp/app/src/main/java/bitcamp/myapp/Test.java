@@ -6,7 +6,7 @@ public class Test {
 
     // no = new int[5]; //인스턴스
 
-    int[] no = new int[5];
-
+    int[] no = { 100, 200, 300 };
+    System.out.println(no.length);
   }
 }
