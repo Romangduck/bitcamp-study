@@ -1,35 +1,25 @@
 package bitcamp.myapp;
 
-import java.util.Scanner;
+import bitcamp.myapp.handler.MemberHandler;
+import bitcamp.util.Prompt;
 
 public class App {
-  static Scanner scanner = new Scanner(System.in);
-
-  static final int MAX_SIZE = 100;
-  static int[] no1 = new int[MAX_SIZE];
-  static String[] name1 = new String[MAX_SIZE];
-  static String[] email1 = new String[MAX_SIZE];
-  static String[] password1 = new String[MAX_SIZE];
-  static char[] gender1 = new char[MAX_SIZE];
-  static int userID = 1;
-  static int length = 0;
 
   public static void main(String[] args) {
 
     printTitle();
 
-    while (length < MAX_SIZE) {
-      inputMember();
+    while (MemberHandler.available()) {
+      MemberHandler.inputMember();
 
-      length++;
       if (!promptContinue()) {
         break;
       }
     }
 
-    printMembers();
+    MemberHandler.printMembers();
 
-    scanner.close();
+    Prompt.close();
 
   }
 
@@ -38,61 +28,14 @@ public class App {
     System.out.println("---------------------------------");
   }
 
-  static void inputMember() {
-
-    System.out.print("이름? ");
-    name1[length] = scanner.next();
-
-    System.out.print("이메일? ");
-
-    email1[length] = scanner.next();
-
-    System.out.print("암호? ");
-
-    password1[length] = scanner.next();
-
-    loop: while (true) {
-      System.out.println("성별: ");
-      System.out.println(" 1. 남자 ");
-      System.out.println(" 2. 여자 ");
-      System.out.println(" > ");
-      String menuNo = scanner.next();
-      scanner.nextLine(); // 입력 값을 읽고 난 후에 남아 있는 줄바꿈 코드를 제거한다.
-      switch (menuNo) {
-        case "1":
-          gender1[length] = 'M';
-          break;
-        case "2":
-          gender1[length] = 'W';
-          break loop;
-
-        default:
-          System.out.println("무효한 번호입니다.");
-
-      }
-    }
-    no1[length] = userID++;
-
-  }
-
   static boolean promptContinue() {
     System.out.println("계속 하시겠습니까?(Y/n) ");
 
-    String response = scanner.nextLine();
+    String response = Prompt.scanner.nextLine();
     if (!response.equals("") && !response.equalsIgnoreCase("Y")) {
       return false;
     }
 
     return true;
-  }
-
-  static void printMembers() {
-    System.out.println("----------------------------");
-    System.out.println("번호 , 이름 , 이메일 , 성별");
-    System.out.println("----------------------------");
-
-    for (int i = 0; i < length; i++) {
-      System.out.printf("%d, %s ,%s ,%c\n", no1[i], name1[i], email1[i], gender1[i]);
-    }
   }
 }
