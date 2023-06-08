@@ -1,35 +1,35 @@
-package bitcamp.project.handler;
+package project.handler;
 
-mport bitcamp.project.util.Prompt;
+import project.util.Prompt;
 
 public class MemberHandler {
 
-  static Scanner sc;
-  static final int MAX_SIZE = 100;
-  static int userId = 1;
-  static int length = 0;
-  static final char MALE = 'M';
-  static final char FEMALE = 'W';
-  static int[] no = new int[MAX_SIZE];
-  static String[] name = new String[MAX_SIZE];
-  static int[] age = new int[MAX_SIZE];
-  static int[] height = new int[MAX_SIZE];
-  static int[] weight = new int[MAX_SIZE];
-  static char[] gender = new char[MAX_SIZE];
-  static float[] leftEye = new float[MAX_SIZE];
-  static float[] rightEye = new float[MAX_SIZE];
+  public static Scanner sc;
+  public static final int MAX_SIZE = 100;
+  public static int userId = 1;
+  public static int length = 0;
+  public static final char MALE = 'M';
+  public static final char FEMALE = 'W';
+  public static int[] no = new int[MAX_SIZE];
+  public static String[] name = new String[MAX_SIZE];
+  public static int[] age = new int[MAX_SIZE];
+  public static int[] height = new int[MAX_SIZE];
+  public static int[] weight = new int[MAX_SIZE];
+  public static char[] gender = new char[MAX_SIZE];
+  public static float[] leftEye = new float[MAX_SIZE];
+  public static float[] rightEye = new float[MAX_SIZE];
 
-  static void inputMember() {
+  public static void inputMember() {
 
-    name[length] = prompt("이름? ");
-    age[length] = Integer.parseInt(prompt("나이? "));
-    height[length] = Integer.parseInt(prompt("키? "));
-    weight[length] = Integer.parseInt(prompt("몸무게? "));
-    leftEye[length] = Float.parseFloat(prompt("시력(왼쪽)? "));
-    rightEye[length] = Float.parseFloat(prompt("시력(오른쪽)? "));
+    name[length] = Prompt.inputString("이름? ");
+    age[length] = Integer.parseInt(Prompt.inputString("나이? "));
+    height[length] = Integer.parseInt(Prompt.inputString("키? "));
+    weight[length] = Integer.parseInt(Prompt.inputString("몸무게? "));
+    leftEye[length] = Float.parseFloat(Prompt.inputString("시력(왼쪽)? "));
+    rightEye[length] = Float.parseFloat(Prompt.inputString("시력(오른쪽)? "));
 
     loop: while (true) {
-      String menuNo = prompt("성별:\n" +
+      String menuNo = Prompt.inputString("성별:\n" +
       "  1. 남자\n"+
       "  2. 여자\n"+
       "> ");
@@ -49,7 +49,7 @@ public class MemberHandler {
     length++;
   }
   
-  static void printMembers() {
+  public static void printMembers() {
     System.out.println("---------------------------------------");
     System.out.println("번호, 이름, 나이, 성별, 키, 몸무게, 왼쪽 시력, 오른쪽 시력");
     System.out.println("---------------------------------------");

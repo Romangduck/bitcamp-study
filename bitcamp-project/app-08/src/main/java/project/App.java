@@ -1,7 +1,7 @@
-package bitcamp.project;
+package project;
 
-import bitcamp.project.util.Prompt;
-import bitcamp.project.handler.MemberHandler;
+import project.util.Prompt;
+import project.handler.MemberHandler;
 
 public class App {
   
@@ -21,13 +21,13 @@ public class App {
     }
 
     static void printTitle() {
-      System.out.println("신체검사 관리 시스템");
+      System.out.println("신체검사");
       System.out.println("----------------------------------");
     }
 
 
     static boolean promptContinue() {
-      String response= Prompt.("계속 하시겠습니까?(Y/n) ");
+      String response= Prompt.inputString("계속 하시겠습니까?(Y/n) ");
       if (!response.equals("") && !response.equalsIgnoreCase("Y")) {
         return false;
       }
