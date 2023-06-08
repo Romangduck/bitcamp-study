@@ -1,12 +1,10 @@
 package bitcamp.project;
 
-// 코드 본문에서 사용할 클래스가 어떤 패키지의 클래스인지 지정한다.
+
 import java.util.Scanner;
 
 public class App {
   public static void main(String[] args) {
-    System.out.println("신체검사 관리 시스템");
-    System.out.println("----------------------------------");
 
     // 키보드 스캐너 준비
     Scanner sc = new Scanner(System.in);
@@ -27,8 +25,10 @@ public class App {
     printTitle();
 
     for (int i = 0; i < MAX_SIZE; i++) {
-      inputMember(sc, i, name, age, height, weight, gender, no, userId++
+      inputMember(sc, i, name, age, height, weight, gender, no, userId++,
       leftEye,rightEye);
+
+      
       length++;
       if (!promptContinue(sc)) {
         break;
@@ -43,10 +43,9 @@ public class App {
       System.out.println("----------------------------------");
     }
 
-    static void inputMember(Scanner sc, int i,
-    String[] name, int[] age, int[] 
-    height,int[] weight, char[] gender,
-    float[] leftEye, float[] rightEye, int[] no, int[] userId) {
+    static void inputMember(Scanner sc,int i,String[] name, int[] age,
+     int[] height,int[] weight,char[] gender,
+     int[] no, int userId,float[] leftEye, float[] rightEye) {
 
 
       System.out.print("이름? ");
@@ -70,7 +69,7 @@ public class App {
         System.out.println("  1. 남자");
         System.out.println("  2. 여자");
         System.out.print("> ");
-        String menuNo = sc.next();
+        String menuNo = sc.nextLine();
 
         switch (menuNo) {
           case "1":
@@ -104,7 +103,9 @@ public class App {
     System.out.println("---------------------------------------");
 
     for (int i = 0; i < length; i++) {
-      System.out.printf("%d, %s, %s, %c\n , %d, %d, %.1f , %.1f", no[i], name[i], age[i], gender[i], height[i], weight[i], leftEye[i], rightEye[i]);
+      System.out.printf("%d, %s, %d, %c , %d, %d, %.1f , %.1f",
+       no[i], name[i], age[i], gender[i], height[i], weight[i], leftEye[i], rightEye[i]);
     }
   }
 }
+

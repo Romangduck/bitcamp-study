@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class App {
   
-    static Scanner sc = new Scanner(System.in);
+    static Scanner sc;
     static final int MAX_SIZE = 100;
     static int userId = 1;
     static int length = 0;
@@ -85,7 +85,7 @@ public class App {
     System.out.println("---------------------------------------");
 
     for (int i = 0; i < length; i++) {
-      System.out.printf("%d, %s, %d, %c , %d, %d, %.1f , %.1f\n",
+      System.out.printf("%d, %s, %d, %c , %d, %d, %.1f , %.1f",
        no[i], name[i], age[i], gender[i], height[i], weight[i], leftEye[i], rightEye[i]);
     }
   }
