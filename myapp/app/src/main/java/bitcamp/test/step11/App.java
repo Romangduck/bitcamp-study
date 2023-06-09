@@ -9,8 +9,8 @@ package bitcamp.test.step11;
 // 7) GRASP 패턴 : Information Expert , 정보를 갖고있는 클래스가 그 정보를 다룬다.
 // 8) 인스턴스 메소드 도입
 // 9) 객체 생성이 번거롭고 복잡한 경우 메서드로 분리하는 것이 낫다. (디자인 패턴 , 팩토리 메서드)
-// 10) GRASP 패턴 : Information Expert
-// 11) 생성자 도입 : 인스턴스 변수를 보다 쉽게 초기화시키기
+// 10) GRASP 패턴 : Information Expert // 29 //
+// 11) 생성자 도입 : 인스턴스 변수를 보다 쉽게 초기화시키기 //30,52//
 
 public class App {
 

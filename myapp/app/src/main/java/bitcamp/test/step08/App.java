@@ -9,7 +9,7 @@ import org.checkerframework.common.returnsreceiver.qual.This;
 // 5) 출력 기능을 별도의 메서드로 분리(중첩 클래스; 스태틱 중첩 클래스)
 // 6) 합계 및 평균을 계산하는 기능을 메서드로 분리
 // 7) GRASP 패턴 : Information Expert , 정보를 갖고있는 클래스가 그 정보를 다룬다.
-// 8) 
+// 8) 인스턴스 메소드 도입
 
 public class App {
 
