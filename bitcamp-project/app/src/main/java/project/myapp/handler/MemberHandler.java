@@ -7,10 +7,8 @@ public class MemberHandler {
 
   static final int MAX_SIZE = 100;
   static Member[] members = new Member[MAX_SIZE];
-  static int userId = 1;
   static int length = 0;
-  static final char MALE = 'M';
-  static final char FEMALE = 'W';
+
 
   public static void inputMember() {
     if (!available()) {
@@ -20,14 +18,14 @@ public class MemberHandler {
 
     Member m = new Member();
 
-    m.name = Prompt.inputString("이름? ");
-    m.age = Integer.parseInt(Prompt.inputString("나이? "));
-    m.gender = inputGender((char) 0);
-    m.height = Integer.parseInt(Prompt.inputString("키? "));
-    m.weight = Integer.parseInt(Prompt.inputString("몸무게? "));
-    m.leftEye = Float.parseFloat(Prompt.inputString("시력(왼쪽)? "));
-    m.rightEye = Float.parseFloat(Prompt.inputString("시력(오른쪽)? "));
-    m.no = userId++;
+    m.setName(Prompt.inputString("이름? "));
+    m.setAge(Integer.parseInt(Prompt.inputString("나이? ")));
+    m.setGender(inputGender((char) 0));
+    m.setHeight(Integer.parseInt(Prompt.inputString("키? ")));
+    m.setWeight(Integer.parseInt(Prompt.inputString("몸무게? ")));
+    m.setLeftEye(Float.parseFloat(Prompt.inputString("시력(왼쪽)? ")));
+    m.setRightEye(Float.parseFloat(Prompt.inputString("시력(오른쪽)? ")));
+
     members[length++] = m;
   }
 
@@ -38,9 +36,8 @@ public class MemberHandler {
 
     for (int i = 0; i < length; i++) {
       Member m = members[i];
-      System.out.printf("%d, %s, %d, %c , %d, %d, %.1f , %.1f\n",
-          m.no, m.name, m.age, m.gender,
-          m.height, m.weight, m.leftEye, m.rightEye);
+      System.out.printf("%d, %s, %d, %c , %d, %d, %.1f , %.1f\n", m.getNo(), m.getName(),
+          m.getAge(), m.getGender(), m.getHeight(), m.getWeight(), m.getLeftEye(), m.getRightEye());
     }
   }
 
@@ -48,10 +45,15 @@ public class MemberHandler {
     String memberNo = Prompt.inputString("번호? ");
     for (int i = 0; i < length; i++) {
       Member m = members[i];
-      if (m.no == Integer.parseInt(memberNo)) {
-        System.out.printf("이름: %s\n", m.name);
-        System.out.printf("나이: %d\n", m.age);
-        System.out.printf("성별: %s\n", toGenderString(m.gender));
+      if (m.getNo() == Integer.parseInt(memberNo)) {
+        System.out.printf("이름: %s\n", m.getName());
+        System.out.printf("나이: %d\n", m.getAge());
+        System.out.printf("성별: %s\n", toGenderString(m.getGender()));
+        System.out.printf("키: %d\n", m.getHeight());
+        System.out.printf("몸무게 : %d\n", m.getWeight());
+        System.out.printf("왼쪽 시력: %.1f\n", m.getLeftEye());
+        System.out.printf("오른쪽 시력: %.1f\n", m.getRightEye());
+
         return;
       }
     }
@@ -66,21 +68,21 @@ public class MemberHandler {
     String memberNo = Prompt.inputString("번호? ");
     for (int i = 0; i < length; i++) {
       Member m = members[i];
-      if (m.no == Integer.parseInt(memberNo)) {
-        System.out.printf("이름(%s)? ", m.name);
-        m.name = Prompt.inputString("");
-        System.out.printf("나이? ", m.age);
-        m.age = Prompt.inputInt("");
+      if (m.getNo() == Integer.parseInt(memberNo)) {
+        System.out.printf("이름(%s)? ", m.getName());
+        m.setName(Prompt.inputString(""));
+        System.out.printf("나이? ", m.getAge());
+        m.setAge(Prompt.inputInt(""));
         System.out.printf("키?");
-        m.height = Prompt.inputInt("");
-        System.out.printf("몸무게?", m.weight);
-        m.weight = Prompt.inputInt("");
-        System.out.printf("왼쪽시력?", m.leftEye);
-        m.leftEye = Prompt.inputFloat("");
-        System.out.printf("오른쪽 시력", m.rightEye);
-        m.rightEye = Prompt.inputFloat("");
+        m.setHeight(Prompt.inputInt(""));
+        System.out.printf("몸무게?", m.getWeight());
+        m.setWeight(Prompt.inputInt(""));
+        System.out.printf("왼쪽시력?", m.getLeftEye());
+        m.setLeftEye(Prompt.inputFloat(""));
+        System.out.printf("오른쪽 시력", m.getRightEye());
+        m.setRightEye(Prompt.inputFloat(""));
 
-        m.gender = inputGender(m.gender);
+        m.setGender(inputGender(m.getGender()));
         return;
       }
     }
@@ -94,17 +96,14 @@ public class MemberHandler {
     } else {
       label = String.format("성별(%s)?\n", toGenderString(gender));
     }
-    loop: while (true) {
-      String menuNo = Prompt.inputString(label +
-          "  1. 남자\n" +
-          "  2. 여자\n" +
-          "> ");
+    while (true) {
+      String menuNo = Prompt.inputString(label + "  1. 남자\n" + "  2. 여자\n" + "> ");
 
       switch (menuNo) {
         case "1":
-          return MALE;
+          return Member.MALE;
         case "2":
-          return FEMALE;
+          return Member.FEMALE;
         default:
           System.out.println("무효한 번호입니다.");
       }
@@ -130,7 +129,7 @@ public class MemberHandler {
   private static int indexOf(int memberNo) {
     for (int i = 0; i < length; i++) {
       Member m = members[i];
-      if (m.no == memberNo) {
+      if (m.getNo() == memberNo) {
         return i;
       }
     }
