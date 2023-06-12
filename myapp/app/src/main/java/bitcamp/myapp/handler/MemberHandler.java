@@ -6,16 +6,10 @@ import bitcamp.util.Prompt;
 public class MemberHandler {
 
   static final int MAX_SIZE = 100;
-  static int[] no = new int[MAX_SIZE];
-  static String[] name = new String[MAX_SIZE];
-  static String[] email = new String[MAX_SIZE];
-  static String[] password = new String[MAX_SIZE];
   static char[] gender = new char[MAX_SIZE];
-  static int userId = 1;
+
   static int length = 0;
 
-  static final char MALE = 'M';
-  static final char FEMALE = 'W';
 
   public static void inputMember() {
     if (!available()) {
@@ -28,7 +22,6 @@ public class MemberHandler {
     m.setEmail(Prompt.inputString("이메일? "));
     m.setPassword(Prompt.inputString("암호? "));
     m.setGender(inputGender((char) 0));
-    m.setNo(userId++);
     members[length++] = m;
   }
 
@@ -62,9 +55,9 @@ public class MemberHandler {
   public static void updateMember() {
     String memberNo = Prompt.inputString("번호? ");
     for (int i = 0; i < length; i++) {
-      if (m.getNo() == Integer.parseInt(memberNo)) {
+      if (m.setNo() == Integer.parseInt(memberNo)) {
         System.out.printf("이름(%s)? ", m.getName());
-        m.getName() = Prompt.inputString("");
+        m.setName() = Prompt.inputString("");
         System.out.printf("이메일(%s)? ", m.getEmail());
         m.getEmail() = Prompt.inputString("");
         System.out.printf("새암호? ");
@@ -88,9 +81,9 @@ public class MemberHandler {
 
       switch (menuNo) {
         case "1":
-          return MALE;
+          return Member.MALE;
         case "2":
-          return FEMALE;
+          return Member.FEMALE;
         default:
           System.out.println("무효한 번호입니다.");
       }
