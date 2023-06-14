@@ -10,7 +10,8 @@ public class Exam0140 {
   }
 
   public static void main(String[] args) {
-
+    // 스태틱 필드가 있는지 확인
+    // 없으면 다음단계인 로컬 변수를 JVM stack에 생성
     // 클래스 변수는 클래스가 로딩되는 순간 바로 사용할 수 있다.
     // 클래스가 로딩되는 경우:
     // - 클래스 변수나 클래스 메서드를 사용할 때
@@ -29,7 +30,7 @@ public class Exam0140 {
     //
     // v2 인스턴스 변수는 인스턴스 주소를 통해 사용해야 한다.
     // 클래스이름으로 사용할 수 없다.
-    //    A.v2 = 200; // 컴파일 오류!
+    // A.v2 = 200; // 컴파일 오류!
 
     p.v2 = 200; // OK!
 
@@ -40,5 +41,3 @@ public class Exam0140 {
     System.out.printf("A.v1=%d, p.v2=%d, p2.v2=%d\n", A.v1, p.v2, p2.v2);
   }
 }
-
-

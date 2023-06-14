@@ -6,3 +6,5 @@ public class Test4 {
     return a;
   }
 }
+
+// 문자열로 변환
