@@ -3,26 +3,65 @@ package bitcamp.myapp.handler;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.Prompt;
 
-public class MemberHandler {
+public class MemberHandler implements Handler {
 
-  private static final int MAX_SIZE = 100;
   // variable initializer(변수초기화 문장) => static 블록으로 이동
   // 단 final 변수는 static 블록에서 값을 할당하지 않고 그냥 상수로 취급한다.
 
+  private MemberList list = new MemberList();
   private Prompt prompt;
 
-  private Member[] members = new Member[MAX_SIZE];
   // variable initializer(변수초기화 문장) => 생성자로 이동
 
-  private int length;
+  private String title;
 
   // 생성자: 인스턴스를 사용할 수 있도록 유효한 값으로 초기화시키는 일을 한다.
   // => 필요한 값을 외부에서 받고 싶으면 파라미터를 선언하라.
-  public MemberHandler(Prompt prompt) {
+  public MemberHandler(Prompt prompt, String title) {
     this.prompt = prompt;
+    this.title = title;
   }
 
-  public void inputMember() {
+  // Handler 인터페이스에 선언된 대로 메서드를 정의했다.
+  // => "Handler 인터페이스를 구현했다" 라고 표현한다.
+  public void execute() {
+    printMenu();
+
+    while (true) {
+      String menuNo = prompt.inputString("%s>", this.title);
+      if (menuNo.equals("0")) {
+        return;
+      } else if (menuNo.equals("menu")) {
+        printMenu();
+      } else if (menuNo.equals("1")) {
+        this.inputMember();
+      } else if (menuNo.equals("2")) {
+        this.printMembers();
+      } else if (menuNo.equals("3")) {
+        this.viewMember();
+      } else if (menuNo.equals("4")) {
+        this.updateMember();
+      } else if (menuNo.equals("5")) {
+        this.deleteMember();
+
+
+
+      } else {
+        System.out.println("메뉴 번호가 옳지 않습니다!");
+      }
+    }
+  }
+
+  private static void printMenu() {
+    System.out.println("1. 등록");
+    System.out.println("2. 목록");
+    System.out.println("3. 조회");
+    System.out.println("4. 변경");
+    System.out.println("5. 삭제");
+    System.out.println("0. 메인");
+  }
+
+  private void inputMember() {
     if (!this.available()) {
       System.out.println("더이상 입력할 수 없습니다!");
       return;
@@ -33,24 +72,22 @@ public class MemberHandler {
     m.setEmail(this.prompt.inputString("이메일? "));
     m.setPassword(this.prompt.inputString("암호? "));
     m.setGender(inputGender((char) 0));
-
-    this.members[this.length++] = m;
+    this.list.add(m);
   }
 
-  public void printMembers() {
+  private void printMembers() {
     System.out.println("---------------------------------------");
     System.out.println("번호, 이름, 이메일, 성별");
     System.out.println("---------------------------------------");
 
     for (int i = 0; i < this.length; i++) {
       Member m = this.members[i];
-      System.out.printf("%d, %s, %s, %s\n",
-          m.getNo(), m.getName(), m.getEmail(),
+      System.out.printf("%d, %s, %s, %s\n", m.getNo(), m.getName(), m.getEmail(),
           toGenderString(m.getGender()));
     }
   }
 
-  public void viewMember() {
+  private void viewMember() {
     String memberNo = this.prompt.inputString("번호? ");
     for (int i = 0; i < this.length; i++) {
       Member m = this.members[i];
@@ -64,11 +101,11 @@ public class MemberHandler {
     System.out.println("해당 번호의 회원이 없습니다!");
   }
 
-  public static String toGenderString(char gender) {
+  private static String toGenderString(char gender) {
     return gender == 'M' ? "남성" : "여성";
   }
 
-  public void updateMember() {
+  private void updateMember() {
     String memberNo = this.prompt.inputString("번호? ");
     for (int i = 0; i < this.length; i++) {
       Member m = this.members[i];
@@ -92,10 +129,7 @@ public class MemberHandler {
     }
 
     while (true) {
-      String menuNo = this.prompt.inputString(label +
-          "  1. 남자\n" +
-          "  2. 여자\n" +
-          "> ");
+      String menuNo = this.prompt.inputString(label + "  1. 남자\n" + "  2. 여자\n" + "> ");
 
       switch (menuNo) {
         case "1":
@@ -108,7 +142,7 @@ public class MemberHandler {
     }
   }
 
-  public void deleteMember() {
+  private void deleteMember() {
     int deletedIndex = indexOf(this.prompt.inputInt("번호? "));
     if (deletedIndex == -1) {
       System.out.println("해당 번호의 회원이 없습니다!");
