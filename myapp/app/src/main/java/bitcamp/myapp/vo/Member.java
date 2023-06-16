@@ -17,6 +17,14 @@ public class Member {
     this.no = userId++;
   }
 
+  // 같은 기능을 수행하는 생성자가 위에 있다
+  // 다만 파라미터가 다를 뿐이다.
+  // => "생성자 오버로딩(overloading)"
+
+  public Member(int no) {
+    this.no = no;
+  }
+
 
   // Object의 equals()는 Member 인스턴스를 비교하는데 젹합하지않다.
   // 왜 ? -> Object의 equals()는 단순히 인스턴스 주소가 같은지 비교하기 때문이다.

@@ -1,6 +1,6 @@
 package bitcamp.myapp.handler;
 
-public class ArraryList {
+public class ArrayList {
   private static final int DEFAULT_SIZE = 3;
 
   private Object[] list = new Object[DEFAULT_SIZE];
@@ -24,16 +24,10 @@ public class ArraryList {
   }
 
   public Object[] list() {
-    // 리턴할 값을 담을 배열을 생성
     Object[] arr = new Object[this.length];
-
-    // 원본 배열에서 입력된 인스턴스 주소를 꺼내
-    // 새 배열에 담는다.
     for (int i = 0; i < this.length; i++) {
       arr[i] = this.list[i];
     }
-
-    // 새 배열을 리턴한다.
     return arr;
   }
 
@@ -70,4 +64,3 @@ public class ArraryList {
     return -1;
   }
 }
-

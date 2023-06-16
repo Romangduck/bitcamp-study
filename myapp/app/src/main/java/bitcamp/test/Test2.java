@@ -26,6 +26,15 @@ public class Test2 {
     // equals()는 인스턴스가 같은지를 비교하는것이지 값이 같은지
     // 비교하는것이 아니다.
 
+    Object obj1 = m1;
+    Object obj2 = m2;
+
+    System.out.println(obj1.equals(obj2));
+
+    // 다형적 변수의 규칙
+    // => 컴파일이 통과되면,
+    // JVM 메서드를 호출할 때,
+    // 다형적 변수가 실제 가리키는 인스턴스의 클래스부터 찾아 올라 간다.
 
   }
 
