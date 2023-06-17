@@ -6,7 +6,7 @@ public class Test7 {
         int top = numer1 * denom2 + numer2 * denom1;
         int bottom = denom1 * denom2;
         int a = 1;
-        for(int i =1; i <= bottom bottom && i <=top; i++) {
+        for(int i =1; i <= bottom  && i <=top; i++) {
             if(top%i==0 && bottom%i==0)
                 a = i;}
         answer[0] = top/a;
