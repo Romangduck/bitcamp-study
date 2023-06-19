@@ -3,18 +3,55 @@ package project.myapp.handler;
 import project.myapp.vo.Member;
 import project.util.Prompt;
 
-public class MemberHandler {
+public class MemberHandler implements Handler {
 
   private static final int MAX_SIZE = 100;
 
   private Prompt prompt;
-
   private Member[] members = new Member[MAX_SIZE];
   private int length;
+  private String title;
 
-  public MemberHandler(Prompt prompt) {
+  public MemberHandler(Prompt prompt, String title) {
     this.prompt = prompt;
+    this.title = title;
   }
+
+  public void execute() {
+    printMenu();
+
+    while (true) {
+      String menuNo = prompt.inputString("%s> ", this.title);
+      if (menuNo.equals("0")) {
+        return;
+      } else if (menuNo.equals("menu")) {
+        printMenu();
+      } else if (menuNo.equals("1")) {
+        this.inputMember();
+      } else if (menuNo.equals("2")) {
+        this.printMembers();
+      } else if (menuNo.equals("3")) {
+        this.viewMember();
+      } else if (menuNo.equals("4")) {
+        this.updateMember();
+      } else if (menuNo.equals("5")) {
+        this.deleteMember();
+      } else {
+        System.out.println("메뉴 번호가 옳지 않습니다!");
+      }
+    }
+  }
+
+  private static void printMenu() {
+    System.out.println("1. 등록");
+    System.out.println("2. 목록");
+    System.out.println("3. 조회");
+    System.out.println("4. 변경");
+    System.out.println("5. 삭제");
+    System.out.println("0. 메인");
+  }
+
+
 
   public void inputMember() {
     if (!this.available()) {
@@ -22,8 +59,8 @@ public class MemberHandler {
       return;
     }
 
-    Member m = new Member();
 
+    Member m = new Member();
     m.setName(this.prompt.inputString("이름? "));
     m.setAge(Integer.parseInt(this.prompt.inputString("나이? ")));
     m.setGender(inputGender((char) 0));
