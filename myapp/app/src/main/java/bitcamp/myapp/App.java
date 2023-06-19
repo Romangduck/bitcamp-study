@@ -3,6 +3,8 @@ package bitcamp.myapp;
 import bitcamp.myapp.handler.BoardHandler;
 import bitcamp.myapp.handler.Handler;
 import bitcamp.myapp.handler.MemberHandler;
+import bitcamp.util.ArrayList;
+import bitcamp.util.LinkedList;
 import bitcamp.util.Prompt;
 
 public class App {
@@ -13,9 +15,9 @@ public class App {
     // => 기본 생성자는 Scanner를 키보드와 연결한다. OK
     Prompt prompt = new Prompt();
 
-    Handler memberHandler = new MemberHandler(prompt, "회원");
-    Handler boardHandler = new BoardHandler(prompt, "게시글");
-    Handler readingHandler = new BoardHandler(prompt, "독서록");
+    Handler memberHandler = new MemberHandler(prompt, "회원", new ArrayList());
+    Handler boardHandler = new BoardHandler(prompt, "게시글", new LinkedList());
+    Handler readingHandler = new BoardHandler(prompt, "독서록", new LinkedList());
 
 
     printTitle();
