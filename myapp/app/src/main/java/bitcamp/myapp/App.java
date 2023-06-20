@@ -5,7 +5,7 @@ import bitcamp.myapp.handler.Handler;
 import bitcamp.myapp.handler.MemberHandler;
 import bitcamp.util.ArrayList;
 import bitcamp.util.LinkedList;
-import bitcamp.util.Prompt;
+import bitcamp.util.MenuPrompt;
 
 public class App {
 
@@ -13,7 +13,8 @@ public class App {
 
     // 기본 생성자를 이용해 Prompt 인스턴스를 준비한다.
     // => 기본 생성자는 Scanner를 키보드와 연결한다. OK
-    Prompt prompt = new Prompt();
+    MenuPrompt prompt = new MenuPrompt();
+    prompt.appendBreadcrumb("메인");
 
     Handler memberHandler = new MemberHandler(prompt, "회원", new ArrayList());
     Handler boardHandler = new BoardHandler(prompt, "게시글", new LinkedList());
@@ -25,7 +26,7 @@ public class App {
     printMenu();
 
     while (true) {
-      String menuNo = prompt.inputString("메인> ");
+      String menuNo = prompt.inputMenu();
       if (menuNo.equals("0")) {
         break;
       } else if (menuNo.equals("menu")) {
