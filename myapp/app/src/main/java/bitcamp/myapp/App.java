@@ -14,7 +14,7 @@ public class App {
     // 기본 생성자를 이용해 Prompt 인스턴스를 준비한다.
     // => 기본 생성자는 Scanner를 키보드와 연결한다. OK
     MenuPrompt prompt = new MenuPrompt();
-    prompt.appendBreadcrumb("메인");
+    prompt.appendBreadcrumb("메인", getMenu());
 
     Handler memberHandler = new MemberHandler(prompt, "회원", new ArrayList());
     Handler boardHandler = new BoardHandler(prompt, "게시글", new LinkedList());
@@ -23,33 +23,36 @@ public class App {
 
     printTitle();
 
-    printMenu();
+    prompt.printMenu();
 
-    while (true) {
+    loop: while (true) {
       String menuNo = prompt.inputMenu();
-      if (menuNo.equals("0")) {
-        break;
-      } else if (menuNo.equals("menu")) {
-        printMenu();
-      } else if (menuNo.equals("1")) {
-        memberHandler.execute();
-      } else if (menuNo.equals("2")) {
-        boardHandler.execute();
-      } else if (menuNo.equals("3")) {
-        readingHandler.execute();
-      } else {
-        System.out.println("메뉴 번호가 옳지 않습니다!");
+      switch (menuNo) {
+        case "0":
+          break loop;
+        case "1":
+          memberHandler.execute();
+          break;
+        case "2":
+          boardHandler.execute();
+          break;
+        case "3":
+          readingHandler.execute();
+          break;
       }
     }
 
     prompt.close();
   }
 
-  static void printMenu() {
-    System.out.println("1. 회원");
-    System.out.println("2. 게시글");
-    System.out.println("3. 독서록");
-    System.out.println("0. 종료");
+  static String getMenu() {
+    StringBuilder menu = new StringBuilder();
+    menu.append("1. 회원\n");
+    menu.append("2. 게시글\n");
+    menu.append("3. 독서록\n");
+    menu.append("0. 종료\n");
+
+    return menu.toString();
   }
 
   static void printTitle() {

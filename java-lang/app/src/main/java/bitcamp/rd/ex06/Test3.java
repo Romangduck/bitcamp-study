@@ -11,3 +11,7 @@ public class Test3 {
     return answer;
   }
 }
+
+// 배열의 평균값
+// tot +=numbers[i];
+// * 배열의 요소를 누적하여 합하는것.

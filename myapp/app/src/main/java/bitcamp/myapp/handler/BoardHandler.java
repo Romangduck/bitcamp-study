@@ -18,40 +18,40 @@ public class BoardHandler implements Handler {
 
   public void execute() {
 
-    prompt.appendBreadcrumb(this.title);
+    prompt.appendBreadcrumb(this.title, getMenu());
 
-    printMenu();
+    prompt.printMenu();
 
     while (true) {
       String menuNo = prompt.inputMenu();
-      if (menuNo.equals("0")) {
-        prompt.removeBreadcrumb();
-        return;
-      } else if (menuNo.equals("menu")) {
-        printMenu();
-      } else if (menuNo.equals("1")) {
-        this.inputBoard();
-      } else if (menuNo.equals("2")) {
-        this.printBoards();
-      } else if (menuNo.equals("3")) {
-        this.viewBoard();
-      } else if (menuNo.equals("4")) {
-        this.updateBoard();
-      } else if (menuNo.equals("5")) {
-        this.deleteBoard();
-      } else {
-        System.out.println("메뉴 번호가 옳지 않습니다!");
+      switch (menuNo) {
+        case "0":
+          prompt.removeBreadcrumb();
+          return;
+        case "1":
+          this.inputBoard();
+        case "2":
+          this.printBoards();
+        case "3":
+          this.viewBoard();
+        case "4":
+          this.updateBoard();
+        case "5":
+          this.deleteBoard();
       }
     }
   }
 
-  private static void printMenu() {
+  private static String getMenu() {
+    StringBuilder menu = new StringBuilder();
     System.out.println("1. 등록");
     System.out.println("2. 목록");
     System.out.println("3. 조회");
     System.out.println("4. 변경");
     System.out.println("5. 삭제");
     System.out.println("0. 메인");
+
+    return menu.toString();
   }
 
   private void inputBoard() {
