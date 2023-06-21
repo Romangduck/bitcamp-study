@@ -1,68 +1,65 @@
 package project.util;
 
-import project.myapp.vo.Board;
-
 public class ArrayList {
   private static final int DEFAULT_SIZE = 3;
-  private Board[] boards = new Board[DEFAULT_SIZE];
-  private int length = 0;
+  private Object[] list = new Object[DEFAULT_SIZE];
+  private int length;
 
-  public boolean add(Board board) {
-    if (this.length == boards.length) {
+  public boolean add(Object obj) {
+    if (length == list.length) {
       increase();
     }
 
-    this.boards[this.length++] = board;
+    this.list[length++] = obj;
     return true;
   }
 
   private void increase() {
-    Board[] arr = new Board[boards.length + (boards.length >> 1)];
+    Object[] arr = new Object[list.length + (list.length >> 1)];
 
-    for (int i = 0; i < boards.length; i++) {
-      arr[i] = boards[i];
+    for (int i = 0; i < list.length; i++) {
+      arr[i] = list[i];
     }
 
-    boards = arr;
+    list = arr;
 
   }
 
-  public Board[] list() {
-    Board[] arr = new Board[this.length];
-    for (int i = 0; i < this.length; i++) {
-      arr[i] = boards[i];
+  public Object[] list() {
+    Object[] arr = new Object[length];
+    for (int i = 0; i < length; i++) {
+      arr[i] = list[i];
     }
     return arr;
   }
 
-  public Board get(int no) {
-    for (int i = 0; i < this.length; i++) {
-      Board board = this.boards[i];
-      if (board.getNo() == no) {
-        board.setViewCount(board.getViewCount() + 1);
-        return board;
+  public Object get(Object obj) {
+    for (int i = 0; i < length; i++) {
+      Object item = list[i];
+      if (item.equals(obj)) {
+        return item;
       }
     }
     return null;
   }
 
   public boolean delete(int no) {
-    int deletedIndex = this.indexOf(no);
+    int deletedIndex = indexOf(no);
     if (deletedIndex == -1) {
       return false;
     }
 
-    for (int i = deletedIndex; i < this.length - 1; i++) {
-      this.boards[i] = this.boards[i + 1];
+    for (int i = deletedIndex; i < length - 1; i++) {
+      list[i] = list[i + 1];
     }
-    this.boards[--this.length] = null;
+    list[--length] = null;
     return true;
   }
 
-  private int indexOf(int boardNo) {
-    for (int i = 0; i < this.length; i++) {
-      Board board = this.boards[i];
-      if (board.getNo() == boardNo) {
+  private int indexOf(Object obj) {
+    for (int i = 0; i < length; i++) {
+      Object item = list[i];
+      if (item.equals(obj)) {
         return i;
       }
     }
