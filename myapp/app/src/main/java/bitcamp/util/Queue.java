@@ -17,7 +17,6 @@ public class Queue extends LinkedList {
     System.out.println(q.poll());
 
     System.out.println(q.poll());
-
   }
 
   public void offer(Object value) {
@@ -28,8 +27,6 @@ public class Queue extends LinkedList {
     if (this.size() == 0) {
       return null;
     }
-
     return this.remove(0);
   }
-
 }

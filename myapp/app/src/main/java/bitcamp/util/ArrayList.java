@@ -24,7 +24,7 @@ public class ArrayList implements List {
       arr[i] = list[i];
     }
     list = arr;
-    // System.out.println("배열 확장: " + list.length);
+    //System.out.println("배열 확장: " + list.length);
   }
 
   @Override
@@ -74,6 +74,7 @@ public class ArrayList implements List {
     return old;
   }
 
+  @Override
   public int size() {
     return this.length;
   }
