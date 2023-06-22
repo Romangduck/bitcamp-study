@@ -43,8 +43,8 @@ public class ArrayList {
     return null;
   }
 
-  public boolean delete(int no) {
-    int deletedIndex = indexOf(no);
+  public boolean delete(Object obj) {
+    int deletedIndex = indexOf(obj);
     if (deletedIndex == -1) {
       return false;
     }

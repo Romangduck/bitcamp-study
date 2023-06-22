@@ -9,7 +9,7 @@ public class Test7 {
 
     Arrays.sort(array); // 정렬
     max = array[array.length - 1]; // max 값은 array배열의 최대값
-    int count[] = new int[max + 1]; // count배열은 등장횟수를 계산기히위함
+    int count[] = new int[max + 1]; // count배열은 등장횟수를 계산하기위함
     for (int i = 0; i < array.length; i++) {
       count[array[i]]++; // array의 길이만큼 반복하며,
       // ex ) [1 1 2 2 2 3] , array[0] = 1 , array[1] = 1 ,//array[2] = 2 ,array[3] =

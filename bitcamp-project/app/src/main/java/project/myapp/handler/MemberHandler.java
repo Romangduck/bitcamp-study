@@ -1,15 +1,14 @@
 package project.myapp.handler;
 
 import project.myapp.vo.Member;
+import project.util.ArrayList;
 import project.util.Prompt;
 
 public class MemberHandler implements Handler {
 
-  private static final int MAX_SIZE = 100;
 
+  private ArrayList list = new ArrayList();
   private Prompt prompt;
-  private Member[] members = new Member[MAX_SIZE];
-  private int length;
   private String title;
 
   public MemberHandler(Prompt prompt, String title) {
@@ -51,11 +50,7 @@ public class MemberHandler implements Handler {
     System.out.println("0. 메인");
   }
 
-  public void inputMember() {
-    if (!this.available()) {
-      System.out.println("더이상 입력할 수 없습니다!");
-      return;
-    }
+  private void inputMember() {
 
     Member m = new Member();
     m.setName(this.prompt.inputString("이름? "));
@@ -66,66 +61,73 @@ public class MemberHandler implements Handler {
     m.setLeftEye(Float.parseFloat(this.prompt.inputString("시력(왼쪽)? ")));
     m.setRightEye(Float.parseFloat(this.prompt.inputString("시력(오른쪽)? ")));
 
-    this.members[this.length++] = m;
+    if (!list.add(m)) {
+      System.out.println("입력 실패입니다!");
+    }
   }
 
-  public void printMembers() {
+  private void printMembers() {
     System.out.println("==========================================================");
     System.out.println("번호, 이름, 나이, 성별, 키, 몸무게, 왼쪽 시력, 오른쪽 시력");
     System.out.println("==========================================================");
 
-    for (int i = 0; i < this.length; i++) {
-      Member m = this.members[i];
+    Object[] arr = list.list();
+    for (Object obj : arr) {
+      Member m = (Member) obj;
       System.out.printf("%d, %s, %d, %c , %d, %d, %.1f , %.1f\n", m.getNo(), m.getName(),
           m.getAge(), m.getGender(), m.getHeight(), m.getWeight(), m.getLeftEye(), m.getRightEye());
     }
   }
 
-  public void viewMember() {
-    String memberNo = this.prompt.inputString("번호? ");
-    for (int i = 0; i < this.length; i++) {
-      Member m = this.members[i];
-      if (m.getNo() == Integer.parseInt(memberNo)) {
-        System.out.printf("이름: %s\n", m.getName());
-        System.out.printf("나이: %d\n", m.getAge());
-        System.out.printf("성별: %s\n", toGenderString(m.getGender()));
-        System.out.printf("키: %d\n", m.getHeight());
-        System.out.printf("몸무게 : %d\n", m.getWeight());
-        System.out.printf("왼쪽 시력: %.1f\n", m.getLeftEye());
-        System.out.printf("오른쪽 시력: %.1f\n", m.getRightEye());
+  private void viewMember() {
+    int memberNo = this.prompt.inputInt("번호? ");
 
-        return;
-      }
+    Member m = (Member) this.list.get(new Member(memberNo));
+    if (m == null) {
+      System.out.println("해당 번호의 회원이 없습니다!");
+      return;
     }
-    System.out.println("해당 번호의 인원 없습니다!");
+
+    System.out.printf("이름: %s\n", m.getName());
+    System.out.printf("나이: %d\n", m.getAge());
+    System.out.printf("성별: %s\n", toGenderString(m.getGender()));
+    System.out.printf("키: %d\n", m.getHeight());
+    System.out.printf("몸무게 : %d\n", m.getWeight());
+    System.out.printf("왼쪽 시력: %.1f\n", m.getLeftEye());
+    System.out.printf("오른쪽 시력: %.1f\n", m.getRightEye());
+
+
   }
 
-  public static String toGenderString(char gender) {
+
+
+  private static String toGenderString(char gender) {
     return gender == 'M' ? "남성" : "여성";
   }
 
-  public void updateMember() {
-    String memberNo = this.prompt.inputString("번호? ");
-    for (int i = 0; i < this.length; i++) {
-      Member m = this.members[i];
-      if (m.getNo() == Integer.parseInt(memberNo)) {
+  private void updateMember() {
+    int memberNo = this.prompt.inputInt("번호? ");
 
-        m.setName(this.prompt.inputString("이름(%s)?", m.getName()));
-
-        m.setAge(this.prompt.inputInt("나이? ", m.getAge()));
-        m.setHeight(this.prompt.inputInt("키? ", m.getHeight()));
-        m.setWeight(this.prompt.inputInt("몸무게? ", m.getWeight()));
-        m.setLeftEye(this.prompt.inputFloat("왼쪽 시력? ", m.getLeftEye()));
-        m.setRightEye(this.prompt.inputFloat("오른쪽 시력? ", m.getRightEye()));
-
-        m.setGender(inputGender(m.getGender()));
-        return;
-      }
+    Member m = (Member) this.list.get(new Member(memberNo));
+    if (m == null) {
+      System.out.println("해당 번호의 회원이 없습니다!");
+      return;
     }
-    System.out.println("해당 번호의 인원이 없습니다!");
+
+    m.setName(this.prompt.inputString("이름(%s)?", m.getName()));
+
+    m.setAge(this.prompt.inputInt("나이? ", m.getAge()));
+    m.setHeight(this.prompt.inputInt("키? ", m.getHeight()));
+    m.setWeight(this.prompt.inputInt("몸무게? ", m.getWeight()));
+    m.setLeftEye(this.prompt.inputFloat("왼쪽 시력? ", m.getLeftEye()));
+    m.setRightEye(this.prompt.inputFloat("오른쪽 시력? ", m.getRightEye()));
+
+    m.setGender(inputGender(m.getGender()));
   }
 
-  public char inputGender(char gender) {
+
+
+  private char inputGender(char gender) {
     String label;
     if (gender == 0) {
       label = "성별?\n";
@@ -146,31 +148,11 @@ public class MemberHandler implements Handler {
     }
   }
 
-  public void deleteMember() {
-    int deletedIndex = indexOf(this.prompt.inputInt("번호? "));
-    if (deletedIndex == -1) {
-      System.out.println("해당 번호의 인원이 없습니다!");
-      return;
+  private void deleteMember() {
+
+    if (!list.delete(new Member(this.prompt.inputInt("번호? ")))) {
+      System.out.println("해당 번호의 회원이 없습니다!");
     }
-
-    for (int i = deletedIndex; i < this.length - 1; i++) {
-      this.members[i] = this.members[i + 1];
-    }
-
-    this.members[--this.length] = null;
-  }
-
-  private int indexOf(int memberNo) {
-    for (int i = 0; i < this.length; i++) {
-      Member m = this.members[i];
-      if (m.getNo() == memberNo) {
-        return i;
-      }
-    }
-    return -1;
-  }
-
-  private boolean available() {
-    return this.length < MAX_SIZE;
   }
 }
+
