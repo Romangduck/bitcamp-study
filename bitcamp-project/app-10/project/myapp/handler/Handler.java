@@ -1,4 +1,4 @@
-package bitcamp.myapp.handler;
+package project.myapp.handler;
 
 public interface Handler {
   void execute();

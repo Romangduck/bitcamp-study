@@ -3,10 +3,17 @@ package com.eomcs.oop.ex06.c;
 
 public class Exam0610 {
 
-  static class Car {}
-  static class Sedan extends Car {}
-  static class Truck extends Car {}
-  static class Tico extends Sedan {}
+  static class Car {
+  }
+
+  static class Sedan extends Car {
+  }
+
+  static class Truck extends Car {
+  }
+
+  static class Tico extends Sedan {
+  }
 
   static class CarFactory {
     Car create() {
@@ -32,16 +39,7 @@ public class Exam0610 {
     }
   }
 
-
   public static void main(String[] args) {
 
   }
 }
-
-
-
-
-
-
-
-

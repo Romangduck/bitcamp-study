@@ -6,3 +6,5 @@ public class Test5 {
     return answer;
   }
 }
+
+// 나이출력
