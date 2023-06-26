@@ -1,8 +1,8 @@
 package bitcamp.myapp.handler;
 
+import java.util.List;
 import bitcamp.myapp.vo.Board;
 import bitcamp.util.BreadcrumbPrompt;
-import bitcamp.util.List;
 
 public class BoardListListener extends AbstractBoardListener {
 
@@ -18,24 +18,11 @@ public class BoardListListener extends AbstractBoardListener {
 
     for (int i = 0; i < this.list.size(); i++) {
       Board board = this.list.get(i);
-      System.out.printf("%d, %s, %s, %d, %tY-%5$tm-%5$td\n",
-          board.getNo(),
-          board.getTitle(),
-          board.getWriter(),
-          board.getViewCount(),
-          board.getCreatedDate());
+      System.out.printf("%d, %s, %s, %d, %tY-%5$tm-%5$td\n", board.getNo(), board.getTitle(),
+          board.getWriter(), board.getViewCount(), board.getCreatedDate());
     }
   }
 
 }
-
-
-
-
-
-
-
-
-
 
 
