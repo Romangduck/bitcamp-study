@@ -4,10 +4,9 @@ import bitcamp.myapp.vo.Board;
 import bitcamp.util.BreadcrumbPrompt;
 import bitcamp.util.List;
 
-public class BoardAddListener extends BoardListener {
+public class BoardAddListener extends AbstractBoardListener {
 
-
-  public BoardAddListener(List list) {
+  public BoardAddListener(List<Board> list) {
     super(list);
   }
 
@@ -21,5 +20,14 @@ public class BoardAddListener extends BoardListener {
     this.list.add(board);
   }
 }
+
+
+
+
+
+
+
+
+
 
 

@@ -4,11 +4,9 @@ import bitcamp.myapp.vo.Member;
 import bitcamp.util.BreadcrumbPrompt;
 import bitcamp.util.List;
 
-public class MemberListListener extends MemberListener {
+public class MemberListListener extends AbstractMemberListener {
 
-
-
-  public MemberListListener(List list) {
+  public MemberListListener(List<Member> list) {
     super(list);
   }
 
@@ -19,12 +17,11 @@ public class MemberListListener extends MemberListener {
     System.out.println("---------------------------------------");
 
     for (int i = 0; i < this.list.size(); i++) {
-      Member m = (Member) this.list.get(i);
-      System.out.printf("%d, %s, %s, %s\n", m.getNo(), m.getName(), m.getEmail(),
+      Member m = this.list.get(i);
+      System.out.printf("%d, %s, %s, %s\n",
+          m.getNo(), m.getName(), m.getEmail(),
           toGenderString(m.getGender()));
     }
   }
-
-
 
 }
