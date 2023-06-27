@@ -7,7 +7,7 @@ public class Exam0242 {
   // 상수를 좀 더 조직적으로 관리하는 방법
   // => enum을 사용하여 상수를 정의한다.
   // => nested enum은 기본이 static 이다.
-  // 그래서 static을 생략해도 된다.
+  //    그래서 static을 생략해도 된다.
   //
   enum Level {
     GUEST, MEMBER, ADMIN
@@ -15,7 +15,6 @@ public class Exam0242 {
 
   public static void main(String[] args) {
     // enum으로 정의된 상수를 사용하려면
-
     // enum 타입의 변수를 선언해야 한다.
     // => final int처럼 직접 값을 지정하지 않아도 된다.
     // => 값을 직접 지정할 수도 있다. (나중에 따로 enum 문법에서 설명)
@@ -41,3 +40,4 @@ public class Exam0242 {
     }
   }
 }
+

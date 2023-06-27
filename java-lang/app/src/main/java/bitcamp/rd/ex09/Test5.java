@@ -18,3 +18,5 @@ public class Test5 {
     return 0;
   }
 }
+
+// 점의 위치 구하기
