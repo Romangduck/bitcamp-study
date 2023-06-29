@@ -12,3 +12,5 @@ public class Test1 {
     return answer;
   }
 }
+
+// 외계행성 나이구하기
