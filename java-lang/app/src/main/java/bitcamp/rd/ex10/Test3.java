@@ -7,3 +7,5 @@ public class Test3 {
     return answer;
   }
 }
+
+// 정수부분

@@ -7,3 +7,12 @@ public class Test4 {
     return answer;
   }
 }
+
+class Solution {
+  public String solution(String myString) {
+    String answer = myString.toLowerCase();
+    return answer;
+  }
+}
+// 대문자로 바꾸기
+// 소문자로 바꾸기
