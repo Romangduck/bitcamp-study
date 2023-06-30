@@ -2,17 +2,17 @@ package project.myapp.handler;
 
 import project.myapp.vo.Board;
 import project.util.List;
-import project.util.MenuPrompt;
+import project.util.Prompt;
 
 public class BoardHandler implements Handler {
 
 
   private List list;
-  private MenuPrompt prompt;
+  private Prompt prompt;
 
   private String title;
 
-  public BoardHandler(MenuPrompt prompt, String title, List list) {
+  public BoardHandler(Prompt prompt, String title, List list) {
     this.prompt = prompt;
     this.title = title;
     this.list = list;

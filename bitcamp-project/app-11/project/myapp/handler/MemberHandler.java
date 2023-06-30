@@ -1,20 +1,19 @@
 package project.myapp.handler;
 
 import project.myapp.vo.Member;
-import project.util.List;
-import project.util.MenuPrompt;
+import project.util.ArrayList;
+import project.util.Prompt;
 
 public class MemberHandler implements Handler {
 
 
-  private List list;
-  private MenuPrompt prompt;
+  private ArrayList list = new ArrayList();
+  private Prompt prompt;
   private String title;
 
-  public MemberHandler(MenuPrompt prompt, String title, List list) {
+  public MemberHandler(Prompt prompt, String title) {
     this.prompt = prompt;
     this.title = title;
-    this.list = list;
   }
 
   public void execute() {
@@ -62,18 +61,19 @@ public class MemberHandler implements Handler {
     m.setLeftEye(Float.parseFloat(this.prompt.inputString("시력(왼쪽)? ")));
     m.setRightEye(Float.parseFloat(this.prompt.inputString("시력(오른쪽)? ")));
 
-    this.list.add(m);
+    if (!list.add(m)) {
+      System.out.println("입력 실패입니다!");
+    }
   }
-
-
 
   private void printMembers() {
     System.out.println("==========================================================");
     System.out.println("번호, 이름, 나이, 성별, 키, 몸무게, 왼쪽 시력, 오른쪽 시력");
     System.out.println("==========================================================");
 
-    for (int i = 0; i < this.list.size(); i++) {
-      Member m = (Member) this.list.get(i);
+    Object[] arr = list.list();
+    for (Object obj : arr) {
+      Member m = (Member) obj;
       System.out.printf("%d, %s, %d, %c , %d, %d, %.1f , %.1f\n", m.getNo(), m.getName(),
           m.getAge(), m.getGender(), m.getHeight(), m.getWeight(), m.getLeftEye(), m.getRightEye());
     }
@@ -82,7 +82,7 @@ public class MemberHandler implements Handler {
   private void viewMember() {
     int memberNo = this.prompt.inputInt("번호? ");
 
-    Member m = this.findBy(memberNo);
+    Member m = (Member) this.list.get(new Member(memberNo));
     if (m == null) {
       System.out.println("해당 번호의 회원이 없습니다!");
       return;
@@ -108,7 +108,7 @@ public class MemberHandler implements Handler {
   private void updateMember() {
     int memberNo = this.prompt.inputInt("번호? ");
 
-    Member m = (Member) this.findBy(memberNo);
+    Member m = (Member) this.list.get(new Member(memberNo));
     if (m == null) {
       System.out.println("해당 번호의 회원이 없습니다!");
       return;
@@ -150,19 +150,9 @@ public class MemberHandler implements Handler {
 
   private void deleteMember() {
 
-    if (!list.remove(new Member(this.prompt.inputInt("번호? ")))) {
+    if (!list.delete(new Member(this.prompt.inputInt("번호? ")))) {
       System.out.println("해당 번호의 회원이 없습니다!");
     }
-  }
-
-  private Member findBy(int no) {
-    for (int i = 0; i < list.size(); i++) {
-      Member m = (Member) list.get(i);
-      if (m.getNo() == no) {
-        return m;
-      }
-    }
-    return null;
   }
 }
 

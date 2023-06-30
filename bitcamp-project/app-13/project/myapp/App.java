@@ -5,13 +5,12 @@ import project.myapp.handler.Handler;
 import project.myapp.handler.MemberHandler;
 import project.util.ArrayList;
 import project.util.LinkedList;
-import project.util.MenuPrompt;
+import project.util.Prompt;
 
 public class App {
 
   public static void main(String[] args) {
-    MenuPrompt prompt = new MenuPrompt();
-    prompt.appendBreadcrumb("메인", getMenu());
+    Prompt prompt = new Prompt();
 
     Handler memberHandler = new MemberHandler(prompt, "대상자 정보", new ArrayList());
     Handler boardHandler = new BoardHandler(prompt, "자유게시판", new LinkedList());
@@ -19,34 +18,34 @@ public class App {
 
     printTitle();
 
-    prompt.printMenu();
+    printMenu();
 
-    loop: while (true) {
-      String menuNo = prompt.inputMenu();
-      switch (menuNo) {
-        case "0":
-          break loop;
-        case "1":
-          memberHandler.execute();
-          break;
-        case "2":
-          boardHandler.execute();
-          break;
-        case "3":
-          complaintHandler.execute();
-          break;
+    while (true) {
+      String menuNo = prompt.inputString("메인> ");
+      if (menuNo.equals("0")) {
+        break;
+      } else if (menuNo.equals("menu")) {
+        printMenu();
+      } else if (menuNo.equals("1")) {
+        memberHandler.execute();
+      } else if (menuNo.equals("2")) {
+        boardHandler.execute();
+      } else if (menuNo.equals("3")) {
+        complaintHandler.execute();
+
+      } else {
+        System.out.println("메뉴 번호가 옳지 않습니다!");
       }
     }
+
     prompt.close();
   }
 
-  static String getMenu() {
-    StringBuilder menu = new StringBuilder();
+  static void printMenu() {
     System.out.println("1. 대상자 정보");
     System.out.println("2. 자유게시판");
     System.out.println("3. 민원");
     System.out.println("0. 종료");
-    return menu.toString();
   }
 
   static void printTitle() {

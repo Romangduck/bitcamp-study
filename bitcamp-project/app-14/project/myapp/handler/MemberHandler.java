@@ -2,16 +2,16 @@ package project.myapp.handler;
 
 import project.myapp.vo.Member;
 import project.util.List;
-import project.util.MenuPrompt;
+import project.util.Prompt;
 
 public class MemberHandler implements Handler {
 
 
   private List list;
-  private MenuPrompt prompt;
+  private Prompt prompt;
   private String title;
 
-  public MemberHandler(MenuPrompt prompt, String title, List list) {
+  public MemberHandler(Prompt prompt, String title, List list) {
     this.prompt = prompt;
     this.title = title;
     this.list = list;
