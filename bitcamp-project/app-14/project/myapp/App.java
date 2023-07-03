@@ -42,10 +42,10 @@ public class App {
 
   static String getMenu() {
     StringBuilder menu = new StringBuilder();
-    System.out.println("1. 대상자 정보");
-    System.out.println("2. 자유게시판");
-    System.out.println("3. 민원");
-    System.out.println("0. 종료");
+    menu.append("1. 대상자 정보\n");
+    menu.append("2. 자유게시판\n");
+    menu.append("3. 민원\n");
+    menu.append("0. 종료\n");
     return menu.toString();
   }
 

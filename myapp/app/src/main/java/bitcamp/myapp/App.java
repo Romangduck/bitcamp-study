@@ -4,11 +4,12 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import bitcamp.myapp.handler.BoardAddListener;
 import bitcamp.myapp.handler.BoardDeleteListener;
 import bitcamp.myapp.handler.BoardDetailListener;
@@ -63,15 +64,15 @@ public class App {
   }
 
   private void loadData() {
-    loadMember("member.csv", memberList);
-    loadBoard("board.csv", boardList);
-    loadBoard("reading.csv", readingList);
+    loadCsv("member.csv", memberList, Member.class);
+    loadCsv("board.csv", boardList, Board.class);
+    loadCsv("reading.csv", readingList, Board.class);
   }
 
   private void saveData() {
-    saveCsv("member.csv", memberList);
-    saveCsv("board.csv", boardList);
-    saveCsv("reading.csv", readingList);
+    saveJson("member.Json", memberList);
+    saveJson("board.Json", boardList);
+    saveJson("reading.Json", readingList);
   }
 
   private void prepareMenu() {
@@ -106,45 +107,38 @@ public class App {
     mainMenu.add(helloMenu);
   }
 
-  private void loadCsv(String filename, List<? extends CsvObject> list,
-      Class<? extends CsvObject> clazz) {
+  @SuppressWarnings("unchecked")
+  private <T extends CsvObject> void loadCsv(String filename, List<T> list, Class<T> clazz) {
     try {
-      Method factorymethod = clazz.getDeclaredMethod("fromCsv", String.class);
+      Method factoryMethod = clazz.getDeclaredMethod("fromCsv", String.class);
+
       FileReader in0 = new FileReader(filename);
       BufferedReader in = new BufferedReader(in0); // <== Decorator 역할을 수행!
 
       String line = null;
-      while ((line = in.readLine()) != null) {
-        list.add(Member.fromCsv(line));
-      }
 
-      if (list.size() > 0) {
-        // 데이터를 로딩한 이후에 추가할 회원의 번호를 설정한다.
-        Member.userId = memberList.get(memberList.size() - 1).getNo() + 1;
+      while ((line = in.readLine()) != null) {
+        list.add((T) factoryMethod.invoke(null, line)); // Reflection API를 사용하여 스태틱 메서드 호출
+        // list.add(Member.fromCsv(line)); // 직접 스태틱 메서드 호출
       }
 
       in.close();
 
     } catch (Exception e) {
-      System.out.println(filename + "파일을 읽는 중 오류 발생!");
+      System.out.println(filename + " 파일을 읽는 중 오류 발생!");
     }
   }
 
-  private void saveCsv(String filename, List<? extends CsvObject> list) {
+  private void saveJson(String filename, List<?> list) {
     try {
       FileWriter out0 = new FileWriter(filename);
-      BufferedWriter out1 = new BufferedWriter(out0); // <== Decorator(장식품) 역할 수행!
-      PrintWriter out = new PrintWriter(out1); // <== Decorator(장식품) 역할 수행!
+      BufferedWriter out = new BufferedWriter(out0); // <== Decorator(장식품) 역할 수행!
 
-      for (CsvObject obj : list) {
-        out.println(obj.toCsvString());
-        // Board나 Member 클래스에 필드가 추가/변경/삭제되더라도
-        // 여기 코드를 변경할 필요가 없다.
-        // 이것이 Information Expert 설계를 적용하는 이유다!
-        // 설계를 어떻게 하느냐에 따라 유지보수가 쉬워질 수도 있고,
-        // 어려워질 수도 있다.
-      }
+      Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").setPrettyPrinting().create();
+      out.write(gson.toJson(list));
+
       out.close();
+
 
     } catch (Exception e) {
       System.out.println(filename + " 파일을 저장하는 중 오류 발생!");
