@@ -105,7 +105,6 @@ public class App {
     // mainMenu.add(helloMenu);
   }
 
-
   private <T> void loadJson(String filename, List<T> list, Class<T> clazz) {
 
     try {
@@ -148,7 +147,6 @@ public class App {
 
       Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").setPrettyPrinting().create();
       out.write(gson.toJson(list));
-
 
       out.close();
 
