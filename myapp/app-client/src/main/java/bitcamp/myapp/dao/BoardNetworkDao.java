@@ -24,10 +24,7 @@ public class BoardNetworkDao implements BoardDao {
   public void insert(Board board) {
     try {
       // 서버에 요청을 보낸다.
-      out.writeUTF(new RequestEntity()
-          .command(dataName + "/insert")
-          .data(board)
-          .toJson());
+      out.writeUTF(new RequestEntity().command(dataName + "/insert").toJson());
 
       // 서버에서 보낸 응답을 받는다.
       ResponseEntity response = ResponseEntity.fromJson(in.readUTF());
