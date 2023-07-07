@@ -24,4 +24,4 @@ public class Chaining {
 // 메서드 체이닝에서 "Cannot invoke ~(String) on the primitive type void" 오류가
 // 발생하는 이유는 메서드가 void 반환 유형을 가지기 때문입니다.
 // void 반환 유형은 값을 반환하지 않으므로 메서드 체이닝에서 연속적으로 호출할 수 없습니다.
-//
+// 간결성 ! 
