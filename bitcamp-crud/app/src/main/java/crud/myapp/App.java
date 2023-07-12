@@ -9,7 +9,7 @@ public class App {
 
     System.out.printf("세대호수: %s", " 201동 1703호\n");
 
-    System.out.printf("비밀번호: %s", "1234\n");
+    System.out.printf("비밀번호: %d", "1234\n");
 
     System.out.printf("반려동물(유(O),무(X)): %c\n", 'O');
   }

@@ -45,7 +45,7 @@ public class Test1 {
 
       System.out.print("암호를 설정해주세요: "); //F
       int password1 = sc.nextInt();
-      if (password1 >= 0 && password1 <= 9999) && (String.format("%04d", i));{
+      if (password1 >= 0 && password1 <= 9999) && (String.format("//d{4}", i));{
         password[i] = password1;
       } else {
         System.out.println("암호를 재설정해주세요.");
