@@ -19,3 +19,4 @@ public class Test9 {
     return answer;
   }
 }
+// 팩토리얼

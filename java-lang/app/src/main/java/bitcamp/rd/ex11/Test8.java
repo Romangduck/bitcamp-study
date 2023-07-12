@@ -9,3 +9,6 @@ public class Test8 {
     }
   }
 }
+
+// 접두사인지 확인하기
+// .startsWith()

@@ -1,10 +1,8 @@
 package bitcamp.myapp;
 
-import java.util.LinkedList;
+import bitcamp.dao.DaoBuilder;
 import bitcamp.myapp.dao.BoardDao;
-import bitcamp.myapp.dao.BoardListDao;
 import bitcamp.myapp.dao.MemberDao;
-import bitcamp.myapp.dao.MemberListDao;
 import bitcamp.myapp.handler.BoardAddListener;
 import bitcamp.myapp.handler.BoardDeleteListener;
 import bitcamp.myapp.handler.BoardDetailListener;
@@ -18,30 +16,44 @@ import bitcamp.myapp.handler.MemberDeleteListener;
 import bitcamp.myapp.handler.MemberDetailListener;
 import bitcamp.myapp.handler.MemberListListener;
 import bitcamp.myapp.handler.MemberUpdateListener;
-import bitcamp.myapp.vo.Board;
 import bitcamp.util.BreadcrumbPrompt;
 import bitcamp.util.Menu;
 import bitcamp.util.MenuGroup;
 
-public class App {
+public class ClientApp {
 
-  MemberDao memberDao = new MemberListDao("member.json");
-  BoardDao boardDao = new BoardListDao("board.json");
-  BoardDao readingDao = new BoardListDao("reading.json");
-
-  LinkedList<Board> boardList = new LinkedList<>();
-  LinkedList<Board> readingList = new LinkedList<>();
+  MemberDao memberDao;
+  BoardDao boardDao;
+  BoardDao readingDao;
 
   BreadcrumbPrompt prompt = new BreadcrumbPrompt();
 
   MenuGroup mainMenu = new MenuGroup("메인");
 
-  public App() {
+  public ClientApp(String ip, int port) throws Exception {
+
+    DaoBuilder daoBuilder = new DaoBuilder(ip, port);
+
+    this.memberDao = daoBuilder.build("member", MemberDao.class);
+    this.boardDao = daoBuilder.build("board", BoardDao.class);
+    this.readingDao = daoBuilder.build("reading", BoardDao.class);
+
     prepareMenu();
   }
 
-  public static void main(String[] args) {
-    new App().execute();
+  public void close() throws Exception {
+    prompt.close();
+  }
+
+  public static void main(String[] args) throws Exception {
+    if (args.length < 2) {
+      System.out.println("실행 예) java ... bitcamp.myapp.ClientApp 서버주소 포트번호");
+      return;
+    }
+
+    ClientApp app = new ClientApp(args[0], Integer.parseInt(args[1]));
+    app.execute();
+    app.close();
   }
 
   static void printTitle() {
@@ -52,7 +64,6 @@ public class App {
   public void execute() {
     printTitle();
     mainMenu.execute(prompt);
-    prompt.close();
   }
 
   private void prepareMenu() {
