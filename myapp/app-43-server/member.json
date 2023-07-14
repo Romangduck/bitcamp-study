@@ -84,10 +84,24 @@
     "gender": "M"
   },
   {
+    "no": 21,
+    "name": "자바고수 이진석",
+    "email": "lee@test.com",
+    "password": "1111",
+    "gender": "M"
+  },
+  {
     "no": 25,
     "name": "qqq",
     "email": "",
     "password": "",
+    "gender": "M"
+  },
+  {
+    "no": 26,
+    "name": "진석이는 자바를 사랑해",
+    "email": "jinsuck@naver.com",
+    "password": "1234",
     "gender": "M"
   },
   {
@@ -98,45 +112,17 @@
     "gender": "M"
   },
   {
-    "no": 62,
-    "name": "돈 조금줘서 애플 안 갈거라는",
-    "email": "이진석",
-    "password": "1",
+    "no": 28,
+    "name": "자바를꽉자바",
+    "email": "-이진석-",
+    "password": "111",
     "gender": "M"
   },
   {
-    "no": 65,
-    "name": "1",
-    "email": "1",
+    "no": 29,
+    "name": "야옹야옹 타이거즈",
+    "email": "@test.com",
     "password": "1",
-    "gender": "M"
-  },
-  {
-    "no": 66,
-    "name": "1",
-    "email": "1",
-    "password": "1",
-    "gender": "M"
-  },
-  {
-    "no": 67,
-    "name": "1",
-    "email": "1",
-    "password": "1",
-    "gender": "M"
-  },
-  {
-    "no": 74,
-    "name": "손흥민 봉준호 이진석 ",
-    "email": "Let\u0027s go",
-    "password": "1",
-    "gender": "W"
-  },
-  {
-    "no": 75,
-    "name": "이진석",
-    "email": "두둥등장",
-    "password": "123",
     "gender": "W"
   }
 ]

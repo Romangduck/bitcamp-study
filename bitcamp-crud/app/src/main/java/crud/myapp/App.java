@@ -1,8 +1,13 @@
 package crud.myapp;
 
+import java.util.Scanner;
+
 public class App {
   public static void main(String[] args) {
     System.out.println("아파트 관리 시스템");
+
+    Scanner sc = new Scanner(System.in);
+
 
     int no = 100;
     int bdno = 201;
