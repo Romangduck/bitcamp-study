@@ -12,13 +12,17 @@ import bitcamp.myapp.dao.BoardListDao;
 import bitcamp.myapp.dao.MemberListDao;
 import bitcamp.net.RequestEntity;
 import bitcamp.net.ResponseEntity;
+import bitcamp.util.ThreadPool;
 
 public class ServerApp {
 
   int port;
   ServerSocket serverSocket;
 
-  HashMap<String,Object> daoMap = new HashMap<>();
+  HashMap<String, Object> daoMap = new HashMap<>();
+
+  // 스레드를 리턴해 줄 스레드풀 준비
+  ThreadPool threadPool = new ThreadPool();
 
   public ServerApp(int port) throws Exception {
     this.port = port;
@@ -79,8 +83,7 @@ public class ServerApp {
         DataOutputStream out = new DataOutputStream(socket.getOutputStream())) {
 
       InetSocketAddress socketAddress = (InetSocketAddress) socket.getRemoteSocketAddress();
-      System.out.printf("%s:%s 클라이언트가 접속했음!\n",
-          socketAddress.getHostString(),
+      System.out.printf("%s:%s 클라이언트가 접속했음!\n", socketAddress.getHostString(),
           socketAddress.getPort());
 
       // 클라이언트 요청을 반복해서 처리하지 않는다.
@@ -96,19 +99,15 @@ public class ServerApp {
 
       Object dao = daoMap.get(dataName);
       if (dao == null) {
-        out.writeUTF(new ResponseEntity()
-            .status(ResponseEntity.ERROR)
-            .result("데이터를 찾을 수 없습니다.")
-            .toJson());
+        out.writeUTF(
+            new ResponseEntity().status(ResponseEntity.ERROR).result("데이터를 찾을 수 없습니다.").toJson());
         return;
       }
 
       Method method = findMethod(dao, methodName);
       if (method == null) {
-        out.writeUTF(new ResponseEntity()
-            .status(ResponseEntity.ERROR)
-            .result("메서드를 찾을 수 없습니다.")
-            .toJson());
+        out.writeUTF(
+            new ResponseEntity().status(ResponseEntity.ERROR).result("메서드를 찾을 수 없습니다.").toJson());
         return;
       }
 
@@ -132,8 +131,5 @@ public class ServerApp {
   }
 
 }
-
-
-
 
 
