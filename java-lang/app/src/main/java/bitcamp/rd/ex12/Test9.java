@@ -15,3 +15,5 @@ public class Test9 {
     return answer;
   }
 }
+
+// 배열에서 문자열 대소문자 변환하기

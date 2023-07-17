@@ -15,3 +15,6 @@ class Test11 {
     return str;
   }
 }
+
+// 접미사 배열
+// substring을 사용하여 앞에서부터 분할하고 Arrays.sort를 사용하여 순서 .

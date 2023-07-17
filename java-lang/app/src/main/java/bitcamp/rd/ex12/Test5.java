@@ -14,3 +14,5 @@ public class Test5 {
     return answer;
   }
 }
+
+// 첫번째로 나오는 음수
