@@ -28,7 +28,7 @@ import project.util.BreadcrumbPrompt;
 import project.util.Menu;
 import project.util.MenuGroup;
 
-public class App {
+public class App { // 35
 
   ArrayList<Member> memberList = new ArrayList<>();
   LinkedList<Board> boardList = new LinkedList<>();

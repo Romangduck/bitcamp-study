@@ -138,5 +138,12 @@
     "email": "두둥등장",
     "password": "123",
     "gender": "W"
+  },
+  {
+    "no": 76,
+    "name": "",
+    "email": "2",
+    "password": "23",
+    "gender": "M"
   }
 ]
