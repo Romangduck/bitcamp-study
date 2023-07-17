@@ -14,7 +14,25 @@
     "content": "2323",
     "writer": "2323",
     "password": "2424",
-    "viewCount": 0,
+    "viewCount": 1,
     "createdDate": 1688454927504
+  },
+  {
+    "no": 7,
+    "title": "월요일 쫗아",
+    "content": "",
+    "writer": "스폰지밥",
+    "password": "1234",
+    "viewCount": 2,
+    "createdDate": 1689586002810
+  },
+  {
+    "no": 11,
+    "title": "개 쫄렸네",
+    "content": "진짜 안되느줄 알았다",
+    "writer": "김현덕",
+    "password": "1234",
+    "viewCount": 1,
+    "createdDate": 1689588192507
   }
 ]
