@@ -18,6 +18,8 @@ repositories {
 }
 
 dependencies {
+
+   implementation project(':app-common')
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
 
@@ -36,7 +38,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'project.ServerApp'
+    mainClass = 'bitcamp.project.ServerApp'
 }
 
 tasks.named('test') {
@@ -59,7 +61,7 @@ tasks.withType(JavaCompile) {
 
 eclipse {
     project {
-        name = "bitcamp-project"
+        name = "project-server"
     }
     jdt {
       sourceCompatibility = 17
