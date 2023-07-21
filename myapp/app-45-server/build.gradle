@@ -11,9 +11,6 @@ dependencies {
     // 서브 프로젝트의 클래스를 사용하기
     implementation project(':app-common')
     
-    // MySQL JDBC Driver
-    implementation 'mysql:mysql-connector-java:8.0.33'
-    
     // Google JSON 라이브러리
     implementation 'com.google.code.gson:gson:2.10.1'
   
@@ -28,7 +25,7 @@ java {
 }
 
 application {
-    mainClass = 'bitcamp.myapp.ClientApp'
+    mainClass = 'bitcamp.myapp.ServerApp'
 }
 
 tasks.named('test') {
@@ -51,7 +48,7 @@ tasks.withType(JavaCompile) {
 // eclipse 프로젝트 이름을 설정하기
 eclipse {
     project {
-        name = "myapp-client"
+        name = "myapp-server"
     }
     jdt {
       sourceCompatibility = 17
