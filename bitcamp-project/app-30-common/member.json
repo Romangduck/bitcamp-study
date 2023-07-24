@@ -28,15 +28,5 @@
     "gender": "M",
     "leftEye": 1.0,
     "rightEye": 2.0
-  },
-  {
-    "name": "홍길순",
-    "no": 5,
-    "age": 23,
-    "height": 2323,
-    "weight": 2323,
-    "gender": "M",
-    "leftEye": 2.0,
-    "rightEye": 2.0
   }
 ]

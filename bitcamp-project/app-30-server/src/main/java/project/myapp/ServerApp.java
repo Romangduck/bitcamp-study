@@ -1,3 +1,4 @@
+// 39
 package project.myapp;
 
 import java.io.DataInputStream;
@@ -13,9 +14,7 @@ import project.myapp.vo.Member;
 import project.net.RequestEntity;
 import project.net.ResponseEntity;
 
-// 1) 클라이언트가 보낸 명령을 데이터이름과 메서드 이름으로 분리한다.
-
-public class ServerApp01 {
+public class ServerApp {
 
   int port;
   ServerSocket serverSocket;
@@ -24,7 +23,8 @@ public class ServerApp01 {
   BoardDao boardDao = new BoardListDao("board.json");
   BoardDao complaintDao = new BoardListDao("complaint.json");
 
-  public ServerApp01(int port) throws Exception {
+
+  public ServerApp(int port) throws Exception {
     this.port = port;
   }
 
@@ -38,7 +38,7 @@ public class ServerApp01 {
       return;
     }
 
-    ServerApp01 app = new ServerApp01(Integer.parseInt(args[0]));
+    ServerApp app = new ServerApp(Integer.parseInt(args[0]));
     app.execute();
     app.close();
   }
@@ -63,12 +63,6 @@ public class ServerApp01 {
         break;
       }
 
-      // 데이터 이름과 메서드 이름 알아내기
-      String[] values = command.split("/");
-      String dataName = values[0];
-      String methodName = values[1];
-      System.out.printf("%s.%s\n", dataName, methodName);
-
       ResponseEntity response = new ResponseEntity();
 
       switch (command) {
@@ -82,7 +76,7 @@ public class ServerApp01 {
         case "board/findBy":
           Board board = boardDao.findBy(request.getObject(Integer.class));
           if (board == null) {
-            response.status(ResponseEntity.SUCCESS);
+            response.status(ResponseEntity.FAILURE).result("해당 번호의 게시글이 없습니다!");
           } else {
             response.status(ResponseEntity.SUCCESS).result(board);
           }
@@ -105,7 +99,7 @@ public class ServerApp01 {
         case "member/findBy":
           Member member = memberDao.findBy(request.getObject(Integer.class));
           if (member == null) {
-            response.status(ResponseEntity.SUCCESS);
+            response.status(ResponseEntity.FAILURE).result("해당 번호의 회원이 없습니다!");
           } else {
             response.status(ResponseEntity.SUCCESS).result(member);
           }
@@ -128,7 +122,7 @@ public class ServerApp01 {
         case "complaint/findBy":
           board = boardDao.findBy(request.getObject(Integer.class));
           if (board == null) {
-            response.status(ResponseEntity.SUCCESS);
+            response.status(ResponseEntity.FAILURE).result("해당 번호의 게시글이 없습니다!");
           } else {
             response.status(ResponseEntity.SUCCESS).result(board);
           }
