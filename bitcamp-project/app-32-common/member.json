@@ -1,0 +1,32 @@
+[
+  {
+    "name": "홍길동",
+    "no": 1,
+    "age": 27,
+    "height": 170,
+    "weight": 60,
+    "gender": "M",
+    "leftEye": 1.0,
+    "rightEye": 1.5
+  },
+  {
+    "name": "홍길순",
+    "no": 2,
+    "age": 25,
+    "height": 176,
+    "weight": 67,
+    "gender": "W",
+    "leftEye": 0.0,
+    "rightEye": 0.5
+  },
+  {
+    "name": "홍길정",
+    "no": 3,
+    "age": 23,
+    "height": 156,
+    "weight": 56,
+    "gender": "M",
+    "leftEye": 1.0,
+    "rightEye": 2.0
+  }
+]
