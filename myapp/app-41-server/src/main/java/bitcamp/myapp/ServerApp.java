@@ -1,4 +1,4 @@
-package bitcamp.myapp;
+package project.myapp;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -8,24 +8,25 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
-import bitcamp.myapp.dao.BoardListDao;
-import bitcamp.myapp.dao.MemberListDao;
-import bitcamp.net.RequestEntity;
-import bitcamp.net.ResponseEntity;
+import project.myapp.dao.BoardListDao;
+import project.myapp.dao.MemberListDao;
+import project.net.RequestEntity;
+import project.net.ResponseEntity;
+
 
 public class ServerApp {
 
   int port;
   ServerSocket serverSocket;
 
-  HashMap<String,Object> daoMap = new HashMap<>();
+  HashMap<String, Object> daoMap = new HashMap<>();
 
   public ServerApp(int port) throws Exception {
     this.port = port;
 
     daoMap.put("member", new MemberListDao("member.json"));
     daoMap.put("board", new BoardListDao("board.json"));
-    daoMap.put("reading", new BoardListDao("reading.json"));
+    daoMap.put("complaint", new BoardListDao("complaint.json"));
   }
 
   public void close() throws Exception {
@@ -54,7 +55,9 @@ public class ServerApp {
     }
   }
 
-  public static Method findMethod(Object obj, String methodName) {
+
+
+  public static Method fineMethod(Object obj, String methodName) {
     Method[] methods = obj.getClass().getDeclaredMethods();
     for (int i = 0; i < methods.length; i++) {
       if (methods[i].getName().equals(methodName)) {
@@ -73,72 +76,71 @@ public class ServerApp {
     }
   }
 
-  // 클라이언트와 접속이 이루어지면 클라이언트의 요청을 처리한다.
   public void processRequest(Socket socket) {
-    try (Socket s = socket;
-        DataInputStream in = new DataInputStream(socket.getInputStream());
-        DataOutputStream out = new DataOutputStream(socket.getOutputStream())) {
-
+      try(Socket s = socket;
+          DataInputStream in = new DataInputStream(socket.getInputStream());
+          DataOutputStream out = new DataOutputStream(socket.getOutputStream());)
+      
       InetSocketAddress socketAddress = (InetSocketAddress) socket.getRemoteSocketAddress();
-      System.out.printf("%s:%s 클라이언트가 접속했음!\n",
-          socketAddress.getHostString(),
-          socketAddress.getPort());
+          System.out.printf("%s:%s 클라이언트가 접속했음!\n",
+              socketAddress.getHostString(),
+              socketAddress.getPort());
+    
+    while (true) {
+      RequestEntity request = RequestEntity.fromJson(in.readUTF());
 
-      while (true) {
-        RequestEntity request = RequestEntity.fromJson(in.readUTF());
+      String command = request.getCommand();
+      System.out.println(command);
 
-        String command = request.getCommand();
-        System.out.println(command);
-
-        if (command.equals("quit")) {
-          break;
-        }
-
-        String[] values = command.split("/");
-        String dataName = values[0];
-        String methodName = values[1];
-
-        Object dao = daoMap.get(dataName);
-        if (dao == null) {
-          out.writeUTF(new ResponseEntity()
-              .status(ResponseEntity.ERROR)
-              .result("데이터를 찾을 수 없습니다.")
-              .toJson());
-          continue;
-        }
-
-        Method method = findMethod(dao, methodName);
-        if (method == null) {
-          out.writeUTF(new ResponseEntity()
-              .status(ResponseEntity.ERROR)
-              .result("메서드를 찾을 수 없습니다.")
-              .toJson());
-          continue;
-        }
-
-        try {
-          Object result = call(dao, method, request);
-
-          ResponseEntity response = new ResponseEntity();
-          response.status(ResponseEntity.SUCCESS);
-          response.result(result);
-          out.writeUTF(response.toJson());
-
-        } catch (Exception e) {
-          ResponseEntity response = new ResponseEntity();
-          response.status(ResponseEntity.ERROR);
-          response.result(e.getMessage());
-          out.writeUTF(response.toJson());
-        }
+      if (command.equals("quit")) {
+        break;
       }
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
+
+      String[] values = command.split("/");
+      String dataName = values[0];
+      String methodName = values[1];
+
+      Object dao = daoMap.get(dataName);
+      if (dao == null) {
+        out.writeUTF(
+            new ResponseEntity()
+            .status(ResponseEntity.ERROR)
+            .result("데이터를 찾을 수 없습니다.")
+            .toJson());
+        
+        continue;
+      }
+
+      Method method = findMethod(dao, methodName);
+      if (method == null) {
+        out.writeUTF(new ResponseEntity()
+            .status(ResponseEntity.ERROR)
+            .result("메서드를 찾을 수 없습니다.")
+            .toJson());
+        continue;
+      }
+
+      try {
+        Object result = call(dao, method, request);
+
+        ResponseEntity response = new ResponseEntity();
+        response.status(ResponseEntity.SUCCESS);
+        response.result(result);
+        out.writeUTF(response.toJson());
+
+      } catch (Exception e) {
+        ResponseEntity response = new ResponseEntity();
+        response.status(ResponseEntity.ERROR);
+        response.result(e.getMessage());
+        out.writeUTF(response.toJson());
+      }
     }
+  }catch(
+
+  Exception e)
+  {
+    System.out.println(e.getMessage());
   }
-
 }
-
-
-
 
 
