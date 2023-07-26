@@ -1,0 +1,42 @@
+[
+  {
+    "name": "홍길순",
+    "no": 2,
+    "age": 25,
+    "height": 176,
+    "weight": 67,
+    "gender": "W",
+    "leftEye": 0.0,
+    "rightEye": 0.5
+  },
+  {
+    "name": "홍길정",
+    "no": 3,
+    "age": 23,
+    "height": 156,
+    "weight": 56,
+    "gender": "M",
+    "leftEye": 1.0,
+    "rightEye": 2.0
+  },
+  {
+    "name": "홍길순",
+    "no": 5,
+    "age": 23,
+    "height": 2323,
+    "weight": 2323,
+    "gender": "M",
+    "leftEye": 2.0,
+    "rightEye": 2.0
+  },
+  {
+    "name": "홍길동그라미",
+    "no": 7,
+    "age": 24,
+    "height": 322,
+    "weight": 313,
+    "gender": "M",
+    "leftEye": 1.0,
+    "rightEye": 1.0
+  }
+]
