@@ -2,7 +2,7 @@ package project.myapp.vo;
 
 import java.io.Serializable;
 
-public class Member implements Serializable, CsvObject, AutoIncrement {
+public class Member implements Serializable {
   private static final long serialVersionUID = 1L;
   public static int userId = 1;
 
@@ -26,42 +26,6 @@ public class Member implements Serializable, CsvObject, AutoIncrement {
     this.no = no;
   }
 
-  public static Member fromCsv(String csv) {
-    String[] values = csv.split(",");
-
-    Member member = new Member(Integer.parseInt(values[0]));
-    member.setName(values[1]);
-    member.setAge(Integer.parseInt(values[2]));
-    member.setHeight(Integer.parseInt(values[3]));
-    member.setWeight(Integer.parseInt(values[4]));
-    member.setLeftEye(Float.parseFloat(values[5]));
-    member.setRightEye(Float.parseFloat(values[6]));
-    member.setGender(values[7].charAt(0));
-
-    if (Member.userId <= member.getNo()) {
-      Member.userId = member.getNo() + 1;
-    }
-
-    return member;
-
-  }
-
-  @Override
-  public String toCsvString() {
-
-    return String.format("%d,%s,%d,%d,%d,%.1f,%.1f,%c", this.getNo(), this.getName(), this.getAge(),
-        this.getHeight(), this.getWeight(), this.getLeftEye(), this.getRightEye(),
-        this.getGender());
-  }
-
-  @Override
-  public void updateKey() {
-    if (Member.userId <= this.no) {
-      Member.userId = this.no + 1;
-    }
-  }
-
-
   public boolean equals(Object obj) {
     if (obj == null) {
       return false;
@@ -79,15 +43,6 @@ public class Member implements Serializable, CsvObject, AutoIncrement {
     return true;
   }
 
-
-
-  // public static int getUserId() {
-  // return userId;
-  // }
-  //
-  // public static void setUserId(int userId) {
-  // Member.userId = userId;
-  // }
 
   public String getName() {
     return name;
