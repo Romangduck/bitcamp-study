@@ -8,7 +8,6 @@ import bitcamp.net.NetProtocol;
 
 public class ClientApp {
 
-
   String ip;
   int port;
 
@@ -55,5 +54,13 @@ public class ClientApp {
     }
   }
 }
+
+
+
+
+
+
+
+
 
 
