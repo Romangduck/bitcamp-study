@@ -9,7 +9,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import project.myapp.vo.AutoIncrement;
+import bitcamp.myapp.vo.AutoIncrement;
 
 public class JsonDataHelper {
   public static <T> void loadJson(String filename, List<T> list, Class<T> clazz) {
