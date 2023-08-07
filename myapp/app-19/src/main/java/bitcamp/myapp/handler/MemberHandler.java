@@ -85,7 +85,7 @@ public class MemberHandler implements Handler {
     }
 
     System.out.printf("이름: %s\n", m.getName());
-    System.out.printf("이메일: %s\n", m.getEmail());
+    System.out.printf("이메일: %s\n", m.getEmail());  
     System.out.printf("성별: %s\n", toGenderString(m.getGender()));
   }
 
