@@ -30,6 +30,7 @@ public class MemberUpdateListener implements MemberActionListener {
     m.setWeight(prompt.inputInt("몸무게? ", m.getWeight()));
     m.setLeftEye(prompt.inputFloat("왼쪽 시력? ", m.getLeftEye()));
     m.setRightEye(prompt.inputFloat("오른쪽 시력? ", m.getRightEye()));
+    m.setHandPhone(prompt.inputInt("핸드폰 번호?", m.getHandPhone()));
 
     m.setGender(MemberActionListener.inputGender(m.getGender(), prompt));
 

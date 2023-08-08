@@ -17,6 +17,15 @@ public class Member implements Serializable {
   private char gender; // 성별
   private float leftEye; // 시력(좌측)
   private float rightEye; // 시력(우측)
+  private int handPhone; // 핸드폰번호
+
+  public int getHandPhone() {
+    return handPhone;
+  }
+
+  public void setHandPhone(int handPhone) {
+    this.handPhone = handPhone;
+  }
 
   public Member() {
     this.no = userId++;

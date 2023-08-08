@@ -20,7 +20,8 @@ create table project_member(
   weight int not null,  
   gender char(1) not null,
   LeftEye float(20) not null,
-  RightEye float(20) not null
+  RightEye float(20) not null,
+  handPhone int not null
   
 );
 

@@ -25,7 +25,8 @@ public class ClientApp {
 
   MemberDao memberDao;
   BoardDao boardDao;
-  BoardDao complaintDao;
+  BoardDao opnionDao;
+  BoardDao homeworkDao;
 
   BreadcrumbPrompt prompt = new BreadcrumbPrompt();
 
@@ -39,7 +40,8 @@ public class ClientApp {
 
     this.memberDao = new MySQLMemberDao(con);
     this.boardDao = new MySQLBoardDao(con, 1);
-    this.complaintDao = new MySQLBoardDao(con, 2);
+    this.opnionDao = new MySQLBoardDao(con, 2);
+    this.homeworkDao = new MySQLBoardDao(con, 3);
 
     prepareMenu();
   }
@@ -60,7 +62,7 @@ public class ClientApp {
   }
 
   static void printTitle() {
-    System.out.println("신체 검사 정보 관리");
+    System.out.println("학급 관리");
   }
 
   public void execute() {
@@ -71,7 +73,7 @@ public class ClientApp {
 
 
   private void prepareMenu() {
-    MenuGroup memberMenu = new MenuGroup("대상자 정보");
+    MenuGroup memberMenu = new MenuGroup("학생 정보");
     memberMenu.add(new Menu("등록", new MemberAddListener(memberDao)));
     memberMenu.add(new Menu("목록", new MemberListListener(memberDao)));
     memberMenu.add(new Menu("조회", new MemberDetailListener(memberDao)));
@@ -79,7 +81,7 @@ public class ClientApp {
     memberMenu.add(new Menu("삭제", new MemberDeleteListener(memberDao)));
     mainMenu.add(memberMenu);
 
-    MenuGroup boardMenu = new MenuGroup("자유게시판");
+    MenuGroup boardMenu = new MenuGroup("학생 종합 의견");
     boardMenu.add(new Menu("등록", new BoardAddListener(boardDao)));
     boardMenu.add(new Menu("목록", new BoardListListener(boardDao)));
     boardMenu.add(new Menu("조회", new BoardDetailListener(boardDao)));
@@ -87,13 +89,21 @@ public class ClientApp {
     boardMenu.add(new Menu("삭제", new BoardDeleteListener(boardDao)));
     mainMenu.add(boardMenu);
 
-    MenuGroup complaintMenu = new MenuGroup("민원");
-    complaintMenu.add(new Menu("등록", new BoardAddListener(complaintDao)));
-    complaintMenu.add(new Menu("목록", new BoardListListener(complaintDao)));
-    complaintMenu.add(new Menu("조회", new BoardDetailListener(complaintDao)));
-    complaintMenu.add(new Menu("변경", new BoardUpdateListener(complaintDao)));
-    complaintMenu.add(new Menu("삭제", new BoardDeleteListener(complaintDao)));
-    mainMenu.add(complaintMenu);
+    MenuGroup opnionMenu = new MenuGroup("자유 게시판");
+    opnionMenu.add(new Menu("등록", new BoardAddListener(opnionDao)));
+    opnionMenu.add(new Menu("목록", new BoardListListener(opnionDao)));
+    opnionMenu.add(new Menu("조회", new BoardDetailListener(opnionDao)));
+    opnionMenu.add(new Menu("변경", new BoardUpdateListener(opnionDao)));
+    opnionMenu.add(new Menu("삭제", new BoardDeleteListener(opnionDao)));
+    mainMenu.add(opnionMenu);
+
+    MenuGroup homeworkMenu = new MenuGroup("숙제 게시판");
+    homeworkMenu.add(new Menu("등록", new BoardAddListener(homeworkDao)));
+    homeworkMenu.add(new Menu("목록", new BoardListListener(homeworkDao)));
+    homeworkMenu.add(new Menu("조회", new BoardDetailListener(homeworkDao)));
+    homeworkMenu.add(new Menu("변경", new BoardUpdateListener(homeworkDao)));
+    homeworkMenu.add(new Menu("삭제", new BoardDeleteListener(homeworkDao)));
+    mainMenu.add(homeworkMenu);
 
     // Menu helloMenu = new Menu("안녕!");
     // helloMenu.addActionListener(new HeaderListener());

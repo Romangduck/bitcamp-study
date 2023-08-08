@@ -29,6 +29,7 @@ public class MemberDetailListener implements ActionListener {
     System.out.printf("몸무게 : %d\n", m.getWeight());
     System.out.printf("왼쪽 시력: %.1f\n", m.getLeftEye());
     System.out.printf("오른쪽 시력: %.1f\n", m.getRightEye());
+    System.out.printf("핸드폰 번호: %d\n", m.getHandPhone());
   }
 }
 
