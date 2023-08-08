@@ -1,4 +1,4 @@
-// 47
+// 49 로그인
 package project.myapp;
 
 import java.sql.Connection;
@@ -12,16 +12,20 @@ import project.myapp.handler.BoardDeleteListener;
 import project.myapp.handler.BoardDetailListener;
 import project.myapp.handler.BoardListListener;
 import project.myapp.handler.BoardUpdateListener;
+import project.myapp.handler.LoginListener;
 import project.myapp.handler.MemberAddListener;
 import project.myapp.handler.MemberDeleteListener;
 import project.myapp.handler.MemberDetailListener;
 import project.myapp.handler.MemberListListener;
 import project.myapp.handler.MemberUpdateListener;
+import project.myapp.vo.Member;
 import project.util.BreadcrumbPrompt;
 import project.util.Menu;
 import project.util.MenuGroup;
 
 public class ClientApp {
+
+  public static Member loginUser;
 
   MemberDao memberDao;
   BoardDao boardDao;
@@ -39,8 +43,8 @@ public class ClientApp {
     );
 
     this.memberDao = new MySQLMemberDao(con);
-    this.boardDao = new MySQLBoardDao(con, 1);
-    this.opnionDao = new MySQLBoardDao(con, 2);
+    this.opnionDao = new MySQLBoardDao(con, 1);
+    this.boardDao = new MySQLBoardDao(con, 2);
     this.homeworkDao = new MySQLBoardDao(con, 3);
 
     prepareMenu();
@@ -62,11 +66,14 @@ public class ClientApp {
   }
 
   static void printTitle() {
-    System.out.println("학급 관리");
+    System.out.println("학급 관리 시스템");
   }
 
   public void execute() {
     printTitle();
+
+    new LoginListener(memberDao).service(prompt);
+
     mainMenu.execute(prompt);
   }
 

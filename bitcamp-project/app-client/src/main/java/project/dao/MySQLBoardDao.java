@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import project.myapp.dao.BoardDao;
 import project.myapp.vo.Board;
+import project.myapp.vo.Member;
 
 public class MySQLBoardDao implements BoardDao {
 
@@ -21,12 +22,12 @@ public class MySQLBoardDao implements BoardDao {
   @Override
   public void insert(Board board) {
     try (PreparedStatement stmt =
-        con.prepareStatement("insert into project_board(title,content,writer,password,category)"
+        con.prepareStatement("insert into myapp_board(title,content,writer,password,category)"
             + " values(?,?,?,sha1(?),?)")) {
 
       stmt.setString(1, board.getTitle());
       stmt.setString(2, board.getContent());
-      stmt.setString(3, board.getWriter());
+      stmt.setInt(3, board.getWriter().getNo());
       stmt.setString(4, board.getPassword());
       stmt.setInt(5, this.category);
 
@@ -38,11 +39,16 @@ public class MySQLBoardDao implements BoardDao {
 
   }
 
+  /*
+   * select b.board_no, b.title, b.view_count, b.created_date, m.member_no, m.name from myapp_board
+   * b inner join myapp_member m on b.writer=m.member_no where category=1 order by board_no desc
+   */
   @Override
   public List<Board> list() {
-    try (PreparedStatement stmt =
-        con.prepareStatement("select board_no, title, writer, view_count, created_date"
-            + " from project_board" + " where category=?" + " order by board_no desc")) {
+    try (PreparedStatement stmt = con.prepareStatement("select" + "  b.board_no, " + "  b.title, "
+        + "  b.view_count, " + "  b.created_date, " + "  m.member_no, " + "  m.name " + " from "
+        + "  myapp_board b inner join myapp_member m on b.writer=m.member_no" + " where "
+        + "  category=?" + " order by " + "  board_no desc")) {
 
       stmt.setInt(1, this.category);
 
@@ -52,9 +58,14 @@ public class MySQLBoardDao implements BoardDao {
           Board b = new Board();
           b.setNo(rs.getInt("board_no"));
           b.setTitle(rs.getString("title"));
-          b.setWriter(rs.getString("writer"));
           b.setViewCount(rs.getInt("view_count"));
           b.setCreatedDate(rs.getTimestamp("created_date"));
+
+          Member writer = new Member();
+          writer.setNo(rs.getInt("member_no"));
+          writer.setName(rs.getString("name"));
+          b.setWriter(writer);
+
           list.add(b);
         }
         return list;
@@ -68,9 +79,11 @@ public class MySQLBoardDao implements BoardDao {
 
   @Override
   public Board findBy(int no) {
-    try (PreparedStatement stmt = con.prepareStatement(
-        "select board_no, title, content, writer, view_count, created_date" + " from project_board"
-            + " where category=? and board_no=?" + " order by board_no desc")) {
+    try (PreparedStatement stmt =
+        con.prepareStatement("select" + "  b.board_no, " + "  b.title, " + "  b.content,"
+            + "  b.view_count, " + "  b.created_date, " + "  m.member_no, " + "  m.name " + " from "
+            + "  myapp_board b inner join myapp_member m on b.writer=m.member_no" + " where "
+            + "  category=?" + "  and board_no=?")) {
 
       stmt.setInt(1, this.category);
       stmt.setInt(2, no);
@@ -81,12 +94,16 @@ public class MySQLBoardDao implements BoardDao {
           b.setNo(rs.getInt("board_no"));
           b.setTitle(rs.getString("title"));
           b.setContent(rs.getString("content"));
-          b.setWriter(rs.getString("writer"));
           b.setViewCount(rs.getInt("view_count"));
           b.setCreatedDate(rs.getTimestamp("created_date"));
 
+          Member writer = new Member();
+          writer.setNo(rs.getInt("member_no"));
+          writer.setName(rs.getString("name"));
+          b.setWriter(writer);
+
           stmt.executeUpdate(
-              "update project_board set" + " view_count=view_count + 1" + " where board_no=" + no);
+              "update myapp_board set" + " view_count=view_count + 1" + " where board_no=" + no);
 
           return b;
         }
@@ -99,14 +116,14 @@ public class MySQLBoardDao implements BoardDao {
 
   @Override
   public int update(Board board) {
-    try (PreparedStatement stmt = con.prepareStatement("update project_board set" + " title=?,"
-        + " content=?" + " where category=? and board_no=? and password=sha1(?)")) {
+    try (PreparedStatement stmt = con.prepareStatement("update myapp_board set" + " title=?,"
+        + " content=?" + " where category=? and board_no=? and writer=?")) {
 
       stmt.setString(1, board.getTitle());
       stmt.setString(2, board.getContent());
       stmt.setInt(3, this.category);
       stmt.setInt(4, board.getNo());
-      stmt.setString(5, board.getPassword());
+      stmt.setInt(5, board.getWriter().getNo());
 
       return stmt.executeUpdate();
 
@@ -118,11 +135,11 @@ public class MySQLBoardDao implements BoardDao {
   @Override
   public int delete(Board board) {
     try (PreparedStatement stmt = con.prepareStatement(
-        "delete from project_board" + " where category=? and board_no=? and password=sha1(?)")) {
+        "delete from myapp_board" + " where category=? and board_no=? and writer=?")) {
 
       stmt.setInt(1, this.category);
       stmt.setInt(2, board.getNo());
-      stmt.setString(3, board.getPassword());
+      stmt.setInt(3, board.getWriter().getNo());
 
       return stmt.executeUpdate();
 

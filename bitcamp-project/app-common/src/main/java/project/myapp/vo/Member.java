@@ -1,6 +1,7 @@
 package project.myapp.vo;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Member implements Serializable {
   private static final long serialVersionUID = 1L;
@@ -17,13 +18,31 @@ public class Member implements Serializable {
   private char gender; // 성별
   private float leftEye; // 시력(좌측)
   private float rightEye; // 시력(우측)
-  private int handPhone; // 핸드폰번호
+  private String handPhone; // 핸드폰번호
+  private Date createdDate; // 등록일
+  private String password; // 비밀번호
 
-  public int getHandPhone() {
+  public String getHandPhone() {
     return handPhone;
   }
 
-  public void setHandPhone(int handPhone) {
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public Date getCreatedDate() {
+    return createdDate;
+  }
+
+  public void setCreatedDate(Date createdDate) {
+    this.createdDate = createdDate;
+  }
+
+  public void setHandPhone(String handPhone) {
     this.handPhone = handPhone;
   }
 

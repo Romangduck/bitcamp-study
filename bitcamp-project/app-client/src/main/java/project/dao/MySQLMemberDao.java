@@ -1,8 +1,8 @@
 package project.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import project.myapp.dao.MemberDao;
@@ -18,13 +18,24 @@ public class MySQLMemberDao implements MemberDao {
 
   @Override
   public void insert(Member member) {
-    try (Statement stmt = con.createStatement()) {
+    try (PreparedStatement stmt = con.prepareStatement(
+        "insert into project_member(name, age, height, weight, gender, leftEye, rightEye, handPhone,Password) values(?, ?, ?, ?, ?, ?, ?, ?,sha1(?)")) {
 
-      stmt.executeUpdate(String.format(
-          "insert into project_member(name,age,height,weight,gender,"
-              + "leftEye,rightEye,h.p) values('%s','%d','%d','%d,'%c','%.1f','%.1f','%d')",
-          member.getName(), member.getAge(), member.getHeight(), member.getWeight(),
-          member.getGender(), member.getLeftEye(), member.getRightEye(), member.getHandPhone()));
+      stmt.setString(1, member.getName());
+      stmt.setInt(2, member.getAge());
+      stmt.setInt(3, member.getHeight());
+      stmt.setInt(4, member.getWeight());
+      stmt.setString(5, String.valueOf(member.getGender()));
+      stmt.setFloat(6, member.getLeftEye());
+      stmt.setFloat(7, member.getRightEye());
+      stmt.setString(8, member.getHandPhone());
+      stmt.setString(9, member.getPassword());
+
+
+
+      stmt.executeUpdate();
+
+
 
     } catch (Exception e) {
       throw new RuntimeException(e);
@@ -33,9 +44,11 @@ public class MySQLMemberDao implements MemberDao {
 
   @Override
   public List<Member> list() {
-    try (Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery(
-            "select member_no, name, age, height, weight, gender,leftEye,rightEye,handPhone from project_member order by name asc")) {
+    try (
+        PreparedStatement stmt = con.prepareStatement(
+            "select member_no, name, age, height, weight, gender,leftEye,rightEye,handPhone "
+                + "from project_member" + "order by name asc");
+        ResultSet rs = stmt.executeQuery()) {
 
       List<Member> list = new ArrayList<>();
 
@@ -49,7 +62,7 @@ public class MySQLMemberDao implements MemberDao {
         m.setGender(rs.getString("gender").charAt(0));
         m.setLeftEye(rs.getFloat("leftEye"));
         m.setRightEye(rs.getFloat("rightEye"));
-        m.setHandPhone(rs.getInt("handPhone"));
+        m.setHandPhone(rs.getString("handPhone"));
 
         list.add(m);
       }
@@ -63,42 +76,86 @@ public class MySQLMemberDao implements MemberDao {
 
   @Override
   public Member findBy(int no) {
-    try (Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery(
-            "select member_no, name, age, height, weight, gender,leftEye,rightEye,handPhone from project_member where member_no="
-                + no)) {
+    try (PreparedStatement stmt = con.prepareStatement(
+        "select member_no, name, age, height, weight, gender,leftEye,rightEye,handPhone,created_date "
+            + "from project_member" + " where member_no=?")) {
 
-      if (rs.next()) {
-        Member m = new Member();
-        m.setNo(rs.getInt("member_no"));
-        m.setName(rs.getString("name"));
-        m.setAge(rs.getInt("age"));
-        m.setHeight(rs.getInt("height"));
-        m.setWeight(rs.getInt("weight"));
-        m.setGender(rs.getString("gender").charAt(0));
-        m.setLeftEye(rs.getFloat("leftEye"));
-        m.setRightEye(rs.getFloat("rightEye"));
-        m.setHandPhone(rs.getInt("hamdPhone"));
-        return m;
+      stmt.setInt(1, no);
+
+      try (ResultSet rs = stmt.executeQuery()) {
+        if (rs.next()) {
+          Member m = new Member();
+          m.setNo(rs.getInt("member_no"));
+          m.setName(rs.getString("name"));
+          m.setAge(rs.getInt("age"));
+          m.setHeight(rs.getInt("height"));
+          m.setWeight(rs.getInt("weight"));
+          m.setGender(rs.getString("gender").charAt(0));
+          m.setLeftEye(rs.getFloat("leftEye"));
+          m.setRightEye(rs.getFloat("rightEye"));
+          m.setHandPhone(rs.getString("handPhone"));
+          m.setCreatedDate(rs.getDate("created_date"));
+          return m;
+        }
+
+        return null;
       }
 
-      return null;
 
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
   }
 
+
+  @Override
+  public Member findByPhoneNumberAndPassword(Member param) {
+    try (PreparedStatement stmt =
+        con.prepareStatement("select member_no, name, handPhone, gender, created_date"
+            + " from myapp_member" + " where handPhone=? and password=sha1(?)")) {
+
+      stmt.setString(1, param.getHandPhone());
+      stmt.setString(2, param.getPassword());
+
+      try (ResultSet rs = stmt.executeQuery()) {
+        if (rs.next()) {
+          Member m = new Member();
+          m.setNo(rs.getInt("member_no"));
+          m.setName(rs.getString("name"));
+          m.setHandPhone(rs.getString("handPhone"));
+          m.setGender(rs.getString("gender").charAt(0));
+          m.setCreatedDate(rs.getDate("created_date"));
+          return m;
+        }
+        return null;
+      }
+
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+
+
   @Override
   public int update(Member member) {
-    try (Statement stmt = con.createStatement()) {
+    try (PreparedStatement stmt = con.prepareStatement(
 
-      return stmt.executeUpdate(String.format(
-          "update project_member set name='%s', age='%d', height='%d', weight='%d', "
-              + "gender='%c', leftEye='%.1f', rightEye='%.1f',handPhone='%d' where member_no=%d",
-          member.getName(), member.getAge(), member.getHeight(), member.getWeight(),
-          member.getGender(), member.getLeftEye(), member.getRightEye(), member.getHandPhone(),
-          member.getNo()));
+        "update project_member set " + "name=?, " + "age=?, " + "height=?, " + "weight=?, "
+            + "gender=?, " + "leftEye=?, " + "rightEye=?, " + "handPhone=? " + "password=sha1(?),"
+            + "where member_no=?")) {
+
+      stmt.setString(1, member.getName());
+      stmt.setInt(2, member.getAge());
+      stmt.setInt(3, member.getHeight());
+      stmt.setInt(4, member.getWeight());
+      stmt.setString(5, String.valueOf(member.getGender()));
+      stmt.setFloat(6, member.getLeftEye());
+      stmt.setFloat(7, member.getRightEye());
+      stmt.setString(8, member.getHandPhone());
+      stmt.setString(9, member.getPassword());
+
+      return stmt.executeUpdate();
 
     } catch (Exception e) {
       throw new RuntimeException(e);
@@ -107,9 +164,12 @@ public class MySQLMemberDao implements MemberDao {
 
   @Override
   public int delete(int no) {
-    try (Statement stmt = con.createStatement()) {
+    try (PreparedStatement stmt =
+        con.prepareStatement("delete from project_member where member_no=?")) {
 
-      return stmt.executeUpdate(String.format("delete from project_member where member_no=%d", no));
+      stmt.setInt(1, no);
+
+      return stmt.executeUpdate();
 
     } catch (Exception e) {
       throw new RuntimeException(e);

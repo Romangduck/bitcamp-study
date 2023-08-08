@@ -22,7 +22,8 @@ public class MemberAddListener implements MemberActionListener {
     m.setWeight(Integer.parseInt(prompt.inputString("몸무게? ")));
     m.setLeftEye(Float.parseFloat(prompt.inputString("시력(왼쪽)? ")));
     m.setRightEye(Float.parseFloat(prompt.inputString("시력(오른쪽)? ")));
-    m.setHandPhone(Integer.parseInt(prompt.inputString("핸드폰 번호?")));
+    m.setHandPhone(prompt.inputString("핸드폰 번호?"));
+    m.setPassword(prompt.inputString("암호? "));
 
     memberDao.insert(m);
   }
