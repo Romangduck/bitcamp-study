@@ -1,4 +1,4 @@
-// 50 서버 아키텍처의 특징 구현
+// 52
 package project.myapp;
 
 import java.io.DataInputStream;
