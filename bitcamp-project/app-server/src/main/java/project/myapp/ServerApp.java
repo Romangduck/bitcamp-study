@@ -40,8 +40,7 @@ public class ServerApp {
   SqlSessionFactory sqlSessionFactory;
   MemberDao memberDao;
   BoardDao boardDao;
-  BoardDao opnionDao;
-  BoardDao homeworkDao;
+
   int port;
 
 
@@ -101,7 +100,7 @@ public class ServerApp {
       InetSocketAddress clientAddress = (InetSocketAddress) socket.getRemoteSocketAddress();
       System.out.printf("%s 클라이언트 접속함!\n", clientAddress.getHostString());
 
-      out.writeUTF("학급 관리 시스템");
+      out.writeUTF("문화 생활 리뷰");
 
       new LoginListener(memberDao).service(prompt);
 
@@ -118,7 +117,7 @@ public class ServerApp {
   }
 
   private void prepareMenu() {
-    MenuGroup memberMenu = new MenuGroup("학생 정보");
+    MenuGroup memberMenu = new MenuGroup("회원 정보");
     memberMenu.add(new Menu("등록", new MemberAddListener(memberDao, sqlSessionFactory)));
     memberMenu.add(new Menu("목록", new MemberListListener(memberDao)));
     memberMenu.add(new Menu("조회", new MemberDetailListener(memberDao)));
@@ -126,29 +125,37 @@ public class ServerApp {
     memberMenu.add(new Menu("삭제", new MemberDeleteListener(memberDao, sqlSessionFactory)));
     mainMenu.add(memberMenu);
 
-    MenuGroup boardMenu = new MenuGroup("학생 종합 의견");
-    boardMenu.add(new Menu("등록", new BoardAddListener(1, boardDao, sqlSessionFactory)));
-    boardMenu.add(new Menu("목록", new BoardListListener(1, boardDao)));
-    boardMenu.add(new Menu("조회", new BoardDetailListener(1, boardDao, sqlSessionFactory)));
-    boardMenu.add(new Menu("변경", new BoardUpdateListener(1, boardDao, sqlSessionFactory)));
-    boardMenu.add(new Menu("삭제", new BoardDeleteListener(1, boardDao, sqlSessionFactory)));
-    mainMenu.add(boardMenu);
+    MenuGroup movieMenu = new MenuGroup("영화 리뷰");
+    movieMenu.add(new Menu("등록", new BoardAddListener(1, boardDao, sqlSessionFactory)));
+    movieMenu.add(new Menu("목록", new BoardListListener(1, boardDao)));
+    movieMenu.add(new Menu("조회", new BoardDetailListener(1, boardDao, sqlSessionFactory)));
+    movieMenu.add(new Menu("변경", new BoardUpdateListener(1, boardDao, sqlSessionFactory)));
+    movieMenu.add(new Menu("삭제", new BoardDeleteListener(1, boardDao, sqlSessionFactory)));
+    mainMenu.add(movieMenu);
 
-    MenuGroup opnionMenu = new MenuGroup("자유 게시판");
-    opnionMenu.add(new Menu("등록", new BoardAddListener(2, boardDao, sqlSessionFactory)));
-    opnionMenu.add(new Menu("목록", new BoardListListener(2, boardDao)));
-    opnionMenu.add(new Menu("조회", new BoardDetailListener(2, boardDao, sqlSessionFactory)));
-    opnionMenu.add(new Menu("변경", new BoardUpdateListener(2, boardDao, sqlSessionFactory)));
-    opnionMenu.add(new Menu("삭제", new BoardDeleteListener(2, boardDao, sqlSessionFactory)));
-    mainMenu.add(opnionMenu);
+    MenuGroup webtoonMenu = new MenuGroup("웹툰 리뷰");
+    webtoonMenu.add(new Menu("등록", new BoardAddListener(2, boardDao, sqlSessionFactory)));
+    webtoonMenu.add(new Menu("목록", new BoardListListener(2, boardDao)));
+    webtoonMenu.add(new Menu("조회", new BoardDetailListener(2, boardDao, sqlSessionFactory)));
+    webtoonMenu.add(new Menu("변경", new BoardUpdateListener(2, boardDao, sqlSessionFactory)));
+    webtoonMenu.add(new Menu("삭제", new BoardDeleteListener(2, boardDao, sqlSessionFactory)));
+    mainMenu.add(webtoonMenu);
 
-    MenuGroup homeworkMenu = new MenuGroup("숙제 게시판");
-    homeworkMenu.add(new Menu("등록", new BoardAddListener(3, boardDao, sqlSessionFactory)));
-    homeworkMenu.add(new Menu("목록", new BoardListListener(3, boardDao)));
-    homeworkMenu.add(new Menu("조회", new BoardDetailListener(3, boardDao, sqlSessionFactory)));
-    homeworkMenu.add(new Menu("변경", new BoardUpdateListener(3, boardDao, sqlSessionFactory)));
-    homeworkMenu.add(new Menu("삭제", new BoardDeleteListener(3, boardDao, sqlSessionFactory)));
-    mainMenu.add(homeworkMenu);
+    MenuGroup webnovelMenu = new MenuGroup("웹_소설 리뷰");
+    webnovelMenu.add(new Menu("등록", new BoardAddListener(3, boardDao, sqlSessionFactory)));
+    webnovelMenu.add(new Menu("목록", new BoardListListener(3, boardDao)));
+    webnovelMenu.add(new Menu("조회", new BoardDetailListener(3, boardDao, sqlSessionFactory)));
+    webnovelMenu.add(new Menu("변경", new BoardUpdateListener(3, boardDao, sqlSessionFactory)));
+    webnovelMenu.add(new Menu("삭제", new BoardDeleteListener(3, boardDao, sqlSessionFactory)));
+    mainMenu.add(webnovelMenu);
+
+    MenuGroup animeMenu = new MenuGroup("애니메이션 리뷰");
+    animeMenu.add(new Menu("등록", new BoardAddListener(4, boardDao, sqlSessionFactory)));
+    animeMenu.add(new Menu("목록", new BoardListListener(4, boardDao)));
+    animeMenu.add(new Menu("조회", new BoardDetailListener(4, boardDao, sqlSessionFactory)));
+    animeMenu.add(new Menu("변경", new BoardUpdateListener(4, boardDao, sqlSessionFactory)));
+    animeMenu.add(new Menu("삭제", new BoardDeleteListener(4, boardDao, sqlSessionFactory)));
+    mainMenu.add(animeMenu);
 
     // Menu helloMenu = new Menu("안녕!");
     // helloMenu.addActionListener(new HeaderListener());
