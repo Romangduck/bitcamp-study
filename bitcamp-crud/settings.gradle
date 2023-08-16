@@ -14,3 +14,5 @@ plugins {
 
 rootProject.name = 'bitcamp-curd'
 include('app')
+include('review-common')
+include('review-project')
