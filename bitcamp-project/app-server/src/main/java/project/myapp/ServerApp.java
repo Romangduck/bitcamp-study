@@ -91,7 +91,7 @@ public class ServerApp {
   }
 
   private void prepareMenu() {
-    MenuGroup memberMenu = new MenuGroup("member", "학생 정보");
+    MenuGroup memberMenu = new MenuGroup("member", "회원 정보");
     memberMenu.add("member/add", "등록", facadeListener);
     memberMenu.add("member/list", "목록", facadeListener);
     memberMenu.add("member/detail", "조회", facadeListener);
