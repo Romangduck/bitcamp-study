@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'eclipse-wtp'
+    //id 'eclipse-wtp'
     id 'war'
 }
 
@@ -53,7 +53,7 @@ tasks.withType(JavaCompile) {
     targetCompatibility = '17'
 }
 
-eclipse {
+/* eclipse {
     project {
         name = "myapp-server"
     }
@@ -77,3 +77,5 @@ eclipse {
 war {
     archiveBaseName = "myapp"
 }
+
+ */
