@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-import project.config.AppConfig;
+import project.myapp.config.AppConfig;
 
 
 // IoC 컨테이너 = Bean 컨테이너

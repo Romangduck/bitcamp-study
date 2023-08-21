@@ -1,11 +1,10 @@
-package project.dao;
+package project.myapp.dao;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import project.myapp.dao.BoardDao;
 import project.myapp.vo.Board;
 
 public class MySQLBoardDao implements BoardDao {
