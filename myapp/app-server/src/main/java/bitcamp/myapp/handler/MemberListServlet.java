@@ -28,6 +28,9 @@ public class MemberListServlet extends HttpServlet {
     out.println("<title>회원</title>");
     out.println("</head>");
     out.println("<body>");
+
+    request.getRequestDispatcher("/header").include(request, response);
+
     out.println("<h1>회원 목록</h1>");
     out.println("<div style='margin:5px;'>");
     out.println("<a href='/member/form.html'>새 회원</a>");
@@ -39,15 +42,21 @@ public class MemberListServlet extends HttpServlet {
 
     List<Member> list = InitServlet.memberDao.findAll();
     for (Member m : list) {
-      out.printf("<tr>" + " <td>%d</td>" + " <td>"
-          + "<img src='http://bnpxdrusesip19010743.cdn.ntruss.com/member/%s?type=f&w=30&h=40&faceopt=true&ttype=jpg'>"
-          + "<a href='/member/detail?no=%d'>%s</a></td>" + " <td>%s</td></tr>\n", m.getNo(),
-          m.getPhoto(), m.getNo(), m.getName(), m.getEmail());
+      out.printf("<tr>"
+          + " <td>%d</td>"
+          + " <td>"
+          + "<img src='http://mvsenqskbqzl19010704.cdn.ntruss.com/member/%s?type=f&w=30&h=40&faceopt=true&ttype=jpg'>"
+          + "<a href='/member/detail?no=%d'>%s</a></td>"
+          + " <td>%s</td></tr>\n",
+          m.getNo(), m.getPhoto(), m.getNo(), m.getName(), m.getEmail());
     }
 
     out.println("</tbody>");
     out.println("</table>");
     out.println("<a href='/'>메인</a>");
+
+    request.getRequestDispatcher("/footer").include(request, response);
+
     out.println("</body>");
     out.println("</html>");
   }
