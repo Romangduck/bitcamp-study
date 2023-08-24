@@ -1,4 +1,4 @@
-package bitcamp.rd.ex11;
+package bitcamp.programmers.ex11;
 
 public class Test8 {
   public int solution(String my_string, String is_prefix) {

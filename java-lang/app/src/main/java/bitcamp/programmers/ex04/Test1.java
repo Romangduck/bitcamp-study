@@ -1,4 +1,4 @@
-package bitcamp.rd.ex04;
+package bitcamp.programmers.ex04;
 
 public class Test1 {
   public int solution(int num, int n) {

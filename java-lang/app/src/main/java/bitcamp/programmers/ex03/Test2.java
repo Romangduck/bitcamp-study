@@ -1,4 +1,4 @@
-package bitcamp.rd.ex03;
+package bitcamp.programmers.ex03;
 
 class Test2 {
   public String solution(String[] arr) {

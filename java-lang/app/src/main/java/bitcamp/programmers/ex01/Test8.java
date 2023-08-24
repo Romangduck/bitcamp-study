@@ -1,4 +1,4 @@
-package bitcamp.rd.ex01;
+package bitcamp.programmers.ex01;
 
 public class Test8 {
   public double solution(int[] arr) {

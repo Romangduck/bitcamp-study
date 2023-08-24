@@ -1,3 +1,4 @@
+package bitcamp.programmers.ex02;
 public class Test2 {
   public String solution(String my_string) {
     String answer = "";

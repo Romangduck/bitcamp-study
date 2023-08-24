@@ -1,4 +1,4 @@
-package bitcamp.rd.ex13;
+package bitcamp.programmers.ex13;
 
 public class Test7 {
   public int[] solution(int n, int[] numlist) {

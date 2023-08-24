@@ -1,4 +1,4 @@
-package bitcamp.rd.ex11;
+package bitcamp.programmers.ex11;
 
 import java.util.ArrayList;
 import java.util.List;

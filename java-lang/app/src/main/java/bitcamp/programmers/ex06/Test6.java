@@ -1,4 +1,4 @@
-package bitcamp.rd.ex06;
+package bitcamp.programmers.ex06;
 
 public class Test6 {
   public int solution(String[] s1, String[] s2) {

@@ -1,3 +1,4 @@
+package bitcamp.programmers.ex13;
 public class Test6  {
   public int solution(int a, int b) {
       int answer = 0;

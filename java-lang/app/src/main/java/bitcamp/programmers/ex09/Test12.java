@@ -1,4 +1,4 @@
-package bitcamp.rd.ex09;
+package bitcamp.programmers.ex09;
 
 import java.util.Scanner;
 

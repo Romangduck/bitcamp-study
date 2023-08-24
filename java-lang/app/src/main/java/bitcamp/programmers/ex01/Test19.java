@@ -1,4 +1,4 @@
-package bitcamp.rd.ex01;
+package bitcamp.programmers.ex01;
 
 public class Test19 {
   public int solution(String myString, String pat) {

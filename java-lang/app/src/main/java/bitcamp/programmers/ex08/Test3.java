@@ -1,4 +1,4 @@
-package bitcamp.rd.ex08;
+package bitcamp.programmers.ex08;
 
 import java.util.Arrays;
 

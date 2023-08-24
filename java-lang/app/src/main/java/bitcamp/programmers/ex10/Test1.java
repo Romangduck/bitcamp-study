@@ -1,4 +1,4 @@
-package bitcamp.rd.ex10;
+package bitcamp.programmers.ex10;
 
 public class Test1 {
   public String solution(int age) {

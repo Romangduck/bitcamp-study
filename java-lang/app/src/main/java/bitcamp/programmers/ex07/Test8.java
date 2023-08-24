@@ -1,4 +1,4 @@
-package bitcamp.rd.ex07;
+package bitcamp.programmers.ex07;
 
 import java.util.Random;
 

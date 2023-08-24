@@ -1,4 +1,4 @@
-package bitcamp.rd.ex01;
+package bitcamp.programmers.ex01;
 
 public class Test6 {
   public int solution(int[] arr1, int[] arr2) {

@@ -1,4 +1,4 @@
-package bitcamp.rd.ex07;
+package bitcamp.programmers.ex07;
 
 public class Test3 {
     public int[] solution(int[] num_list) {

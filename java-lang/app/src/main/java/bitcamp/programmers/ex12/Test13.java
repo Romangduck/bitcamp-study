@@ -1,3 +1,4 @@
+package bitcamp.programmers.ex12;
 import java.util.*;
 public class Test13 {
     public String[] solution(String[] names) {

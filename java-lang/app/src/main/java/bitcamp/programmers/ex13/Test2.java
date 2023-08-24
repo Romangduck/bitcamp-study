@@ -1,3 +1,4 @@
+package bitcamp.programmers.ex13;
 public class Test2  {
   public String solution(String my_string, int[] index_list) {
       StringBuilder answerBuilder = new StringBuilder();

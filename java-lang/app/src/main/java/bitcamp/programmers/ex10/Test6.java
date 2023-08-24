@@ -1,4 +1,4 @@
-package bitcamp.rd.ex10;
+package bitcamp.programmers.ex10;
 
 public class Test6 {
   public int solution(String num_str) {

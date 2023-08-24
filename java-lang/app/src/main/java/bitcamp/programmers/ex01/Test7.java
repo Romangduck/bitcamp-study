@@ -1,4 +1,4 @@
-package bitcamp.rd.ex01;
+package bitcamp.programmers.ex01;
 
 public class Test7 {
   public int solution(int[] box, int n) {

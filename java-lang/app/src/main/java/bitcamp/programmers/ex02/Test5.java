@@ -1,4 +1,4 @@
-package bitcamp.rd.ex02;
+package bitcamp.programmers.ex02;
 
 import java.util.ArrayList;
 

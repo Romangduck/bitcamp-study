@@ -1,4 +1,4 @@
-package bitcamp.rd.ex02;
+package bitcamp.programmers.ex02;
 
 public class Test10 {
   public static String solution(String myString, String overwriteString, int s) {

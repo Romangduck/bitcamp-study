@@ -1,4 +1,4 @@
-package bitcamp.rd.ex01;
+package bitcamp.programmers.ex01;
 public class Test20 {
     public String solution(String myString) {
         return myString.replaceAll("[^l-z]", "l");

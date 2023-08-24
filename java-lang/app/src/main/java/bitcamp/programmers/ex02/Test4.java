@@ -1,4 +1,4 @@
-package bitcamp.rd.ex02;
+package bitcamp.programmers.ex02;
 
 public class Test4 {
   public String solution(String[] my_strings, int[][] parts) {

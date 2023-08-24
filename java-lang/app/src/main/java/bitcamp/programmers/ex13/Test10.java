@@ -1,4 +1,4 @@
-package bitcamp.rd.ex13;
+package bitcamp.programmers.ex13;
 
 import java.util.Arrays;
 

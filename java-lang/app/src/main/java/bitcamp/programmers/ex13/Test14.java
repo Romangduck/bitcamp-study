@@ -1,4 +1,4 @@
-package bitcamp.rd.ex13;
+package bitcamp.programmers.ex13;
 
 public class Test14 {
   public int solution(int[] date1, int[] date2) {

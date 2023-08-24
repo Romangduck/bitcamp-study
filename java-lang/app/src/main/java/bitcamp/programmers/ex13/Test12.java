@@ -1,4 +1,4 @@
-package bitcamp.rd.ex13;
+package bitcamp.programmers.ex13;
 
 public class Test12 {
   public int solution(String myString, String pat) {

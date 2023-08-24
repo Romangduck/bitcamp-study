@@ -1,4 +1,4 @@
-package bitcamp.rd.ex03;
+package bitcamp.programmers.ex03;
 
 public class Test3 {
   public String solution(String my_string, int k) {

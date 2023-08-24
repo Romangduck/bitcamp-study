@@ -1,4 +1,4 @@
-package bitcamp.rd.ex07;
+package bitcamp.programmers.ex07;
 
 <<<<<<< HEAD
 public class Test4 {

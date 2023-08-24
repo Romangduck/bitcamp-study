@@ -1,3 +1,4 @@
+package bitcamp.programmers.ex13;
 public class Test5  {
   public int solution(int hp) {
 

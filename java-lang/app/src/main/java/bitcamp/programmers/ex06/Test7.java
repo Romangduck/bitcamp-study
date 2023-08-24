@@ -1,4 +1,4 @@
-package bitcamp.rd.ex06;
+package bitcamp.programmers.ex06;
 
 public class Test7 {
   public int[] solution(int numer1, int denom1, int numer2, int denom2) {

@@ -1,4 +1,4 @@
-package bitcamp.rd.ex08;
+package bitcamp.programmers.ex08;
 
 public class Test2 {
   public int solution(int[] array, int n) {
