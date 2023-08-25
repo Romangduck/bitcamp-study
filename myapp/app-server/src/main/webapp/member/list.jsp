@@ -31,7 +31,7 @@
                     </tr>
                   </thead>
 
-                  <% MemberDao memberDao=(MemberDao) this.getServletContext().getAttribute("memberDao"); List<Member>
+                  <% MemberDao memberDao=(MemberDao) application.getAttribute("memberDao"); List<Member>
                     list = memberDao.findAll();
                     for (Member m : list) {
                     %>

@@ -2,7 +2,7 @@
   <%@ page import="bitcamp.myapp.dao.MemberDao" %>
     <%@ page import="bitcamp.myapp.vo.Member" %>
 
-      <% MemberDao memberDao=(MemberDao) this.getServletContext().getAttribute("memberDao"); Member
+      <% MemberDao memberDao=(MemberDao) application.getAttribute("memberDao"); Member
         member=memberDao.findBy(Integer.parseInt(request.getParameter("no"))); %>
 
         <!DOCTYPE html>

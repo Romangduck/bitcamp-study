@@ -27,6 +27,8 @@ dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
     implementation 'com.google.guava:guava:31.1-jre'
+    // JSTL
+    implementation 'jstl:jstl:1.2'
 }
 
 java {

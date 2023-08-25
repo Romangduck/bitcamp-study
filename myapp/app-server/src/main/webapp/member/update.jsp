@@ -9,10 +9,10 @@
             member.setNo(Integer.parseInt(request.getParameter("no"))); member.setName(request.getParameter("name"));
             member.setEmail(request.getParameter("email")); member.setPassword(request.getParameter("password"));
             member.setGender(request.getParameter("gender").charAt(0)); MemberDao memberDao=(MemberDao)
-            this.getServletContext().getAttribute("memberDao"); SqlSessionFactory sqlSessionFactory=(SqlSessionFactory)
-            this.getServletContext().getAttribute("sqlSessionFactory"); NcpObjectStorageService
+            application.getAttribute("memberDao"); SqlSessionFactory sqlSessionFactory=(SqlSessionFactory)
+            application.getAttribute("sqlSessionFactory"); NcpObjectStorageService
             ncpObjectStorageService=(NcpObjectStorageService)
-            this.getServletContext().getAttribute("ncpObjectStorageService"); Part photoPart=request.getPart("photo");
+            application.getAttribute("ncpObjectStorageService"); Part photoPart=request.getPart("photo");
             if (photoPart.getSize()> 0) {
             String uploadFileUrl = ncpObjectStorageService.uploadFile(
             "bitcamp-nc7-bucket-24", "member/", photoPart);
