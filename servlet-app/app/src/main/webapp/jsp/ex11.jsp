@@ -17,9 +17,9 @@
 <jsp:useBean id="b1" class="eomcs.vo.Board" scope="page"/>
 <%-- 
 위 태그의 자바 코드:
-com.eomcs.web.vo.Board b1 = (eomcs.vo.Board) pageContext.getAttribute("b1");
+eomcs.vo.Board b1 = (eomcs.vo.Board) pageContext.getAttribute("b1");
 if (b1 == null) {
-  b1 = new com.eomcs.web.vo.Board();
+  b1 = new eomcs.vo.Board();
   pageContext.setAttribute("b1", b1);
 }
 --%>

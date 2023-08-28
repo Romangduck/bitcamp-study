@@ -35,13 +35,16 @@ public class MemberListServlet extends HttpServlet {
     out.println("<thead>");
     out.println("  <tr><th>번호</th> <th>이름</th> <th>나이</th> <th>성별</th> <th>핸드폰</th></tr>");
     out.println("</thead>");
+    out.println("<tbody>");
 
     List<Member> list = InitServlet.memberDao.findAll();
     for (Member m : list) {
       out.printf(
           "<tr>" + " <td>%d</td>" + " <td><a href='/member/detail?no=%d'>%s</a></td>"
-              + " <td>%s</td>" + "<td>%d</td>" + "<td>%c</td>" + "<td>%d</td></tr>\n",
-          m.getNo(), m.getNo(), m.getName(), m.getAge(), m.getGender(), m.getHandPhone());
+              + " <td>%d</td>" + "<td>%s</td>" + "<td>%s</td></tr>\n",
+          m.getNo(), m.getNo(), m.getName(), m.getAge(), m.getGender(),
+          m.getHandPhone() != null ? m.getHandPhone() : "");
+
     }
 
     out.println("</tbody>");

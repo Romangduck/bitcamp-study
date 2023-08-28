@@ -28,7 +28,7 @@ public class HomeServlet extends HttpServlet {
     out.println("<title>비트아카데미</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>MyApp2</h1>");
+    out.println("<h1>비트아카데미</h1>");
     out.println("<ul>");
     out.println("  <li><a href='/member/list'>회원</a></li>");
     out.println("  <li><a href='/board/list?category=1'>학생 종합 의견</a></li>");
