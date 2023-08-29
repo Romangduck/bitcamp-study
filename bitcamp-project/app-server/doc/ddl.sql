@@ -23,7 +23,7 @@ create table project_member(
   gender char(1) not null,
   leftEye float(20) not null,
   rightEye float(20) not null,
-  handPhone varchar(11) null,
+  handPhone varchar(20) not null,
   password varchar(100) not null,
   created_date date default (current_date())
 );

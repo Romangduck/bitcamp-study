@@ -25,15 +25,14 @@ public class HomeServlet extends HttpServlet {
     out.println("<html>");
     out.println("<head>");
     out.println("<meta charset='UTF-8'>");
-    out.println("<title>비트아카데미</title>");
+    out.println("<title>비트캠프</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>비트아카데미</h1>");
+    out.println("<h1>MyApp2</h1>");
     out.println("<ul>");
     out.println("  <li><a href='/member/list'>회원</a></li>");
-    out.println("  <li><a href='/board/list?category=1'>학생 종합 의견</a></li>");
-    out.println("  <li><a href='/board/list?category=2'>자유 게시판</a></li>");
-    out.println("  <li><a href='/board/list?category=3'>숙제 게시판</a></li>");
+    out.println("  <li><a href='/board/list?category=1'>게시판</a></li>");
+    out.println("  <li><a href='/board/list?category=2'>독서록</a></li>");
 
     Member loginUser = (Member) request.getSession().getAttribute("loginUser");
     if (loginUser == null) {

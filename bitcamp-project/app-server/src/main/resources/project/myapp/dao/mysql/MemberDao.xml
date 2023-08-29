@@ -68,7 +68,7 @@
       and password=sha1(#{password})
   </select>
   
-  <update id="update" parameterType="member">
+<update id="update" parameterType="member">
    update project_member set
       name=#{name},
       age=#{age},
@@ -78,10 +78,10 @@
       leftEye=#{leftEye},
       rightEye=#{rightEye},
       handPhone=#{handPhone},
-      password=sha1(#{password}),
+      password=sha1(#{password})
     where 
       member_no=#{no}
-  </update>
+</update>
   
   <delete id="delete" parameterType="int">
     delete from project_member

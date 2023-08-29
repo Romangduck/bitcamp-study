@@ -44,19 +44,24 @@ public class MemberDetailServlet extends HttpServlet {
           member.getName());
       out.printf("<tr><th>나이</th>" + " <td><input type='age' name='age' value='%d'></td></tr>\n",
           member.getAge());
+      out.printf("<tr><th>키</th>" + " <td><input type='height' name='height'></td></tr>\n",
+          member.getHeight());
+      out.printf("<tr><th>몸무게</th>" + " <td><input type='weight' name='weight'></td></tr>\n",
+          member.getWeight());
       out.printf(
           "<tr><th>성별</th>\n" + " <td><select name='gender'>\n"
               + " <option value='M' %s>남자</option>\n"
               + " <option value='W' %s>여자</option></select></td></tr>\n",
           (member.getGender() == 'M' ? "selected" : ""),
           (member.getGender() == 'W' ? "selected" : ""));
-      out.printf("<tr><th>키</th>" + " <td><input type='height' name='height'></td></tr>\n",
-          member.getHeight());
-      out.printf("<tr><th>몸무게</th>" + " <td><input type='weight' name='weight'></td></tr>\n",
-          member.getWeight());
       out.printf("<tr><th>왼쪽 시력</th>" + " <td><input type='leftEye' name='leftEye'></td></tr>\n",
           member.getLeftEye());
       out.printf("<tr><th>오른쪽 시력</th>" + " <td><input type='rightEye' name='rightEye'></td></tr>\n",
+          member.getRightEye());
+      out.printf(
+          "<tr><th>핸드폰 번호</th>" + " <td><input type='handPhone' name='handPhone'></td></tr>\n",
+          member.getRightEye());
+      out.printf("<tr><th>비밀번호</th>" + " <td><input type='password' name='password'></td></tr>\n",
           member.getRightEye());
       out.println("</table>");
 
