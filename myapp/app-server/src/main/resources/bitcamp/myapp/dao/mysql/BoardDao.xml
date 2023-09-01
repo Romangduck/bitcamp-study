@@ -37,7 +37,7 @@
     values(#{title},#{content},#{writer.no},#{category})
   </insert>
   
-  <select id="findAll" parameterType="int" resultMap="boardMap">
+  <select id="findAll" resultMap="boardMap">
     select
       b.board_no,
       b.title,

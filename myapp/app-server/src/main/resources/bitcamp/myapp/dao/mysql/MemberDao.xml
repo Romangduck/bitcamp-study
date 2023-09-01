@@ -15,7 +15,7 @@
     <result column="photo"        property="photo"/>
   </resultMap>
 
-  <insert id="insert" parameterType="member">
+  <insert id="insert" >
     insert into myapp_member(name,email,password,gender,photo)
     values(#{name},#{email},sha1(#{password}),#{gender},#{photo})
   </insert>

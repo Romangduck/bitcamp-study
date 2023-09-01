@@ -8,6 +8,20 @@
       <change beforePath="$PROJECT_DIR$/../eomcs-java" beforeDir="false" afterPath="$PROJECT_DIR$/../eomcs-java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-lang/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../java-lang/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-common/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/myapp/dao/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/myapp/dao/BoardDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/myapp/dao/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/myapp/dao/MemberDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardAddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/MySQLBoardDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/dao/MySQLMemberDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/MyServletRequestListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/MyServletRequestListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/util/SqlSessionFactoryProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/config/mybatis-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/mysql/BoardDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/mysql/BoardDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/mysql/MemberDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/mysql/MemberDao.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +40,9 @@
     <system id="GRADLE">
       <state>
         <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/app-server">
           <activation />
         </task>
         <projects_view>
@@ -72,7 +89,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Gradle.myapp:app-server [build]">
     <configuration name="App" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="bitcamp.myapp.App" />
       <module name="myapp.app-server.main" />
@@ -125,13 +142,61 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="myapp:app-server [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app-server" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="myapp:app-server [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app-server" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.App" />
+      <item itemvalue="Gradle.myapp:app-server [build]" />
+      <item itemvalue="Gradle.myapp:app-server [clean]" />
       <item itemvalue="Gradle.myapp [build]" />
       <item itemvalue="Gradle.myapp [clean]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.myapp:app-server [build]" />
+        <item itemvalue="Gradle.myapp:app-server [clean]" />
         <item itemvalue="Gradle.myapp [build]" />
         <item itemvalue="Gradle.myapp [clean]" />
       </list>
@@ -156,6 +221,7 @@
       <workItem from="1693442040631" duration="656000" />
       <workItem from="1693443429432" duration="8000" />
       <workItem from="1693474978985" duration="2375000" />
+      <workItem from="1693528757078" duration="11078000" />
     </task>
     <servers />
   </component>
