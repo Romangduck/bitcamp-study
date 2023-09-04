@@ -1,13 +1,14 @@
 package project.myapp.handler;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import project.myapp.vo.Member;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import project.myapp.vo.Member;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/member/detail")
 public class MemberDetailServlet extends HttpServlet {
@@ -18,7 +19,7 @@ public class MemberDetailServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    Member member = InitServlet.memberDao.findBy(Integer.parseInt(request.getParameter("no")));
+      Member member = InitServlet.memberDao.findBy(Integer.parseInt(request.getParameter("no")));
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
@@ -29,6 +30,9 @@ public class MemberDetailServlet extends HttpServlet {
     out.println("<title>회원</title>");
     out.println("</head>");
     out.println("<body>");
+
+    request.getRequestDispatcher("/header").include(request, response);
+
     out.println("<h1>회원</h1>");
 
     if (member == null) {
@@ -37,6 +41,14 @@ public class MemberDetailServlet extends HttpServlet {
     } else {
       out.println("<form action='/member/update' method='post'>");
       out.println("<table border='1'>");
+        out.printf("<tr><th style='width:120px;'>사진</th>"
+                + " <td style='width:300px;'>"
+                + (member.getPhoto() == null ? "<img style='height:80px' src='/images/avatar.png'>" :
+                "<a href='https://kr.object.ncloudstorage.com/bitcamp-nc7-bucket-24/member/%s'>"
+                        + "<img src='http://bnpxdrusesip19010743.cdn.ntruss.com/member/%s?type=f&w=60&h=80&faceopt=true&ttype=jpg'>"
+                        + "</a>")
+                + " <input type='file' name='photo'>"
+                + "</td></tr>\n", member.getPhoto());
       out.printf("<tr><th style='width:120px;'>번호</th>"
           + " <td style='width:300px;'><input type='text' name='no' value='%d' readonly></td></tr>\n",
           member.getNo());
@@ -69,10 +81,11 @@ public class MemberDetailServlet extends HttpServlet {
       out.println("</form>");
     }
 
-    out.println("</body>");
-    out.println("</html>");
+
+      request.getRequestDispatcher("/footer").include(request, response);
+
+      out.println("</body>");
+      out.println("</html>");
 
   }
 }
-
-

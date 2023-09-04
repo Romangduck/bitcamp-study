@@ -28,23 +28,18 @@ public class AppConfig {
         System.out.println("AppConfig() 호출됨!");
     }
 
-    // Mybatis 객체 준비
-//  @Bean
-//  public SqlSessionFactory sqlSessionFactory() throws Exception {
-//    System.out.println("AppConfig.sqlSessionFactory() 호출됨!");
-//    return new SqlSessionFactoryProxy(
-//            new SqlSessionFactoryBuilder().build(
-//                    Resources.getResourceAsStream("bitcamp/myapp/config/mybatis-config.xml")));
-//  }
-
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource, ApplicationContext appCtx) throws Exception {
         System.out.println("AppConfig.sqlSessionFactory() 호출됨!");
 
+        // Mybatis에서 Log4j 2.x 버전을 사용하도록 활성화시킨다.
+        // 활성화시키지 않으면 Mybatis에서 로그를 출력하지 않는다.
+        org.apache.ibatis.logging.LogFactory.useLog4J2Logging();
+
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         factoryBean.setTypeAliasesPackage("bitcamp.myapp.vo");
-        factoryBean.setMapperLocations(appCtx.getResource("classpath:bitcamp/myapp/dao/mysql/*Dao.xml"));
+        factoryBean.setMapperLocations(appCtx.getResources("classpath:bitcamp/myapp/dao/mysql/*Dao.xml"));
 
         return factoryBean.getObject();
     }

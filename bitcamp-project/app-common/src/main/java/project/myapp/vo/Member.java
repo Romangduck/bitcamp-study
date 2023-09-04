@@ -22,10 +22,17 @@ public class Member implements Serializable {
   private String handPhone; // 핸드폰번호
   private Date createdDate; // 등록일
   private String password; // 비밀번호
+    private String photo; // 사진
 
+    public String getPhoto() {
+        return photo;
+    }
 
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
-  @Override
+    @Override
   public int hashCode() {
     return Objects.hash(no);
   }

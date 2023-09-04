@@ -1,19 +1,19 @@
 <%@ page
-    language="java"
-    pageEncoding="UTF-8"
-    contentType="text/html;charset=UTF-8"
-    isErrorPage="true"%>
+        language="java"
+        pageEncoding="UTF-8"
+        contentType="text/html;charset=UTF-8"
+        isErrorPage="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     if (request.getAttribute("refresh") != null) {
-      response.setHeader("Refresh", (String) request.getAttribute("refresh"));
+        response.setHeader("Refresh", (String) request.getAttribute("refresh"));
     }
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset='UTF-8'>
-<title>실행오류</title>
+    <meta charset='UTF-8'>
+    <title>실행오류</title>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
 <h1>실행 오류!</h1>
 
 <c:if test="${message}">
-  <p>${message}</p>
+    <p>${message}</p>
 </c:if>
 
 <hr>

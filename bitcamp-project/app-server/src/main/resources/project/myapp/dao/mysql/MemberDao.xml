@@ -16,11 +16,12 @@
     <result column="handPhone"   property="handPhone"/>
     <result column="password"   property="password"/>
     <result column="created_date"   property="createdDate"/>
+      <result column="photo"        property="photo"/>
   </resultMap>
 
   <insert id="insert" parameterType="member">
     insert into project_member(name, age, height, weight, gender, leftEye, rightEye, handPhone, password)
-    values(#{name},#{age},#{height},#{weight},#{gender},#{leftEye},#{rightEye},#{handPhone},sha1(#{password}))
+    values(#{name},#{age},#{height},#{weight},#{gender},#{leftEye},#{rightEye},#{handPhone},sha1(#{password},#{photo}))
   </insert>
   
   <select id="findAll" resultMap="memberMap">
@@ -29,7 +30,8 @@
       name,
       age,
       gender,
-      handPhone
+      handPhone,
+      photo
     from
       project_member 
     order by
@@ -47,7 +49,8 @@
       leftEye,
       rightEye,
       handPhone,
-      created_date
+      created_date,
+      photo
     from
       project_member
     where
@@ -60,7 +63,8 @@
       name,
       handPhone,
       gender,
-      created_date
+      created_date,
+      photo
     from
       project_member
     where
@@ -78,7 +82,10 @@
       leftEye=#{leftEye},
       rightEye=#{rightEye},
       handPhone=#{handPhone},
-      password=sha1(#{password}),
+      password=sha1(#{password})
+      <if test="photo != null">
+          ,photo=#{photo}
+      </if>
     where 
       member_no=#{no}
   </update>

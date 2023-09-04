@@ -38,8 +38,8 @@ tasks.withType(JavaCompile) {
     targetCompatibility = '17'
 }
 
-// eclipse 프로젝트 이름을 설정하기
-//eclipse {
+//// eclipse 프로젝트 이름을 설정하기
+// eclipse {
 //    project {
 //        name = "project-common"
 //    }
@@ -48,3 +48,5 @@ tasks.withType(JavaCompile) {
 //      targetCompatibility = 17
 //      javaRuntimeName = "JavaSE-17"
 //    }
+// }
+//
