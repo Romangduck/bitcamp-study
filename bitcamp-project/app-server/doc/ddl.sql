@@ -1,25 +1,25 @@
+-- 게시글첨부파일
+DROP TABLE IF EXISTS project_board_file RESTRICT;
 -- 게시글
 DROP TABLE IF EXISTS project_board RESTRICT;
 
+-- 게시판유형
+DROP TABLE IF EXISTS project_board_category RESTRICT;
 -- 회원
 DROP TABLE IF EXISTS project_member RESTRICT;
 
--- 게시판유형
-DROP TABLE IF EXISTS project_board_category RESTRICT;
 
--- 게시글첨부파일
-DROP TABLE IF EXISTS project_board_file RESTRICT;
 
 
 create table project_member(
   member_no int not null,
   name varchar(20) not null,
-  age int not null,
-  height int not null,
-  weight int not null,  
+  age int null,
+  height int null,
+  weight int null,
   gender char(1) not null,
-  leftEye float(20) not null,
-  rightEye float(20) not null,
+  leftEye float(20) null,
+  rightEye float(20) null,
   handPhone varchar(11) not null,
   password varchar(100) not null,
   created_date date default (current_date()),

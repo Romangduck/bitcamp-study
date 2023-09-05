@@ -21,16 +21,16 @@ public class MemberAddServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-    Member m = new Member();
-    m.setName(request.getParameter("name"));
-    m.setHandPhone(request.getParameter("handPhone"));
-    m.setPassword(request.getParameter("password"));
-    m.setGender(request.getParameter("gender").charAt(0));
+        Member m = new Member();
+        m.setName(request.getParameter("name"));
+        m.setHandPhone(request.getParameter("handPhone"));
+        m.setPassword(request.getParameter("password"));
+        m.setGender(request.getParameter("gender").charAt(0));
 
         Part photoPart = request.getPart("photo");
         if (photoPart.getSize() > 0) {
             String uploadFileUrl = InitServlet.ncpObjectStorageService.uploadFile(
-                    "bitcamp-nc7-bucket-24", "member/", photoPart);
+                    "bitcamp-nc7-bucket-24", "member2/", photoPart);
             m.setPhoto(uploadFileUrl);
         }
 

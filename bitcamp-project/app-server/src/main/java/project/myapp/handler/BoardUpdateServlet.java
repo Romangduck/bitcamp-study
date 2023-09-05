@@ -42,7 +42,7 @@ public class BoardUpdateServlet extends HttpServlet {
             for (Part part : request.getParts()) {
                 if (part.getName().equals("files") && part.getSize() > 0) {
                     String uploadFileUrl = InitServlet.ncpObjectStorageService.uploadFile(
-                            "bitcamp-nc7-bucket-24", "board/", part);
+                            "bitcamp-nc7-bucket-24", "board2/", part);
                     AttachedFile attachedFile = new AttachedFile();
                     attachedFile.setFilePath(uploadFileUrl);
                     attachedFiles.add(attachedFile);
