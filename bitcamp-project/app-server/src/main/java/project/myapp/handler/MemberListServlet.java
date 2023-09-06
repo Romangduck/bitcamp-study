@@ -37,7 +37,7 @@ public class MemberListServlet extends HttpServlet {
         out.println("</div>");
         out.println("<table border='1'>");
         out.println("<thead>");
-        out.println("  <tr><th>번호</th> <th>이름</th> <th>나이</th> <th>성별</th> <th>핸드폰</th></tr>");
+        out.println("  <tr><th>번호</th> <th>이름</th> <th>생년월일</th> <th>성별</th> <th>핸드폰 번호</th></tr>");
         out.println("</thead>");
         
 

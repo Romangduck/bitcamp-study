@@ -54,7 +54,7 @@ public class MemberDetailServlet extends HttpServlet {
           member.getNo());
       out.printf("<tr><th>이름</th>" + " <td><input type='text' name='name' value='%s'></td></tr>\n",
           member.getName());
-      out.printf("<tr><th>나이</th>" + " <td><input type='age' name='age' value='%d'></td></tr>\n",
+      out.printf("<tr><th>생년월일</th>" + " <td><input type='age' name='age' value='%d'></td></tr>\n",
           member.getAge());
       out.printf(
           "<tr><th>성별</th>\n" + " <td><select name='gender'>\n"

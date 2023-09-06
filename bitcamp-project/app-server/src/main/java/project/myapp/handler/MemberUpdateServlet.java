@@ -29,7 +29,7 @@ public class MemberUpdateServlet extends HttpServlet {
     member.setName(request.getParameter("name"));
     member.setAge(Integer.parseInt(request.getParameter("age")));
     member.setHeight(Integer.parseInt(request.getParameter("height")));
-    member.setWeight(Integer.parseInt(request.getParameter("weight")));
+    member.setWeight(Integer.parseInt(request.getParameter ("weight")));
     member.setLeftEye(Float.parseFloat(request.getParameter("leftEye")));
     member.setRightEye(Float.parseFloat(request.getParameter("rightEye")));
     member.setGender(request.getParameter("gender").charAt(0));

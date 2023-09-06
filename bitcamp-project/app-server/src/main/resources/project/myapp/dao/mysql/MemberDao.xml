@@ -20,9 +20,10 @@
   </resultMap>
 
   <insert id="insert" parameterType="member">
-    insert into project_member(name, age, height, weight, gender, leftEye, rightEye, handPhone, password)
-    values(#{name},#{age},#{height},#{weight},#{gender},#{leftEye},#{rightEye},#{handPhone},sha1(#{password},#{photo}))
+      insert into project_member(name,age,height,weight,gender,leftEye,rightEye,handPhone,password,photo)
+      values(#{name},#{age},#{height},#{weight},#{gender},#{leftEye},#{rightEye},#{handPhone},sha1(#{password}),#{photo})
   </insert>
+
   
   <select id="findAll" resultMap="memberMap">
     select

@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/app-server/src/main/webapp/auth/form.html" value="file://$PROJECT_DIR$/app-server/src/main/webapp/auth" />
+        <entry key="file://$PROJECT_DIR$/app-server/src/main/webapp/calendar.html" value="file://$PROJECT_DIR$/app-server/src/main/webapp" />
       </map>
     </option>
   </component>

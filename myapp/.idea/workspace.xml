@@ -4,71 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ac5d962-9aa5-4d33-8ada-2fd0c7a20efc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../bitcamp-project/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcamp-project/app-server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcamp-project/app-server/src/main/java/project/myapp/handler/BoardDetailServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcamp-project/app-server/src/main/java/project/myapp/handler/BoardDetailServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcamp-project/app-server/src/main/java/project/myapp/handler/MemberAddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcamp-project/app-server/src/main/java/project/myapp/handler/MemberAddServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcamp-project/app-server/src/main/webapp/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcamp-project/app-server/src/main/webapp/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcamp-project/app-server/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcamp-project/app-server/src/main/webapp/index.html" afterDir="false" />
+    <list default="true" id="192df256-9059-47e8-9380-c816d584b3f5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../eomcs-java" beforeDir="false" afterPath="$PROJECT_DIR$/../eomcs-java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-common/.idea/app-common.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-common/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-common/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-common/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-common/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-62-server/doc/data3.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app-62-server/doc/data3.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-common/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/myapp/dao/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/myapp/dao/BoardDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/myapp/dao/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/myapp/dao/MemberDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardAddController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardDeleteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardDetailController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardFileDeleteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardListController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardUpdateController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/HomeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/LogoutController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/MemberAddController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/MemberDeleteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/MemberDetailController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/MemberListController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/MemberUpdateController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/PageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/filter/CharacterEncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/filter/CharacterEncodingFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/BoardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultBoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultBoardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/DefaultMemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/DispatcherServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/DispatcherServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/util/TransactionCallback.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/util/TransactionTemplate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/config/ncloud/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/config/ncloud/jdbc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/mysql/BoardDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/mysql/BoardDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/mysql/MemberDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/resources/bitcamp/myapp/dao/mysql/MemberDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/NcpConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/NcpConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/RequestMapping.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/RequestParam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ContextLoaderListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/DispatcherServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/member/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/member/detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/member/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/member/form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/member/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/member/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/board/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/board/detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,52 +35,25 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2Uxkh8JTAHcsvTJ36m5s9lwN21a" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;00e7384b8366cd1e0186de126ee6427e&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+}]]></component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="0ac5d962-9aa5-4d33-8ada-2fd0c7a20efc" name="Changes" comment="" />
-      <created>1693888736098</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1693888736098</updated>
-      <workItem from="1693888737254" duration="131000" />
-      <workItem from="1693891591235" duration="1747000" />
-      <workItem from="1693894619235" duration="2000" />
-      <workItem from="1693896964099" duration="341000" />
-    </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
 </project>

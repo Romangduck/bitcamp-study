@@ -14,11 +14,13 @@ insert into myapp_member(member_no, name, email, password, gender)
 
   
 -- myapp_board_category 테이블 예제 데이터
-insert into myapp_board_category(board_category_no, name) values(1, '게시판');
-insert into myapp_board_category(board_category_no, name) values(2, '독서록');
+insert into project_board_category(board_category_no, name) values(1, '의사 종합 의견');
+insert into project_board_category(board_category_no, name) values(2, '자유 게시판');
+insert into project_board_category(board_category_no, name) values(3, '진료 예약 게시판');
+
   
 -- myapp_board 테이블 예제 데이터
-insert into myapp_board(board_no, title, content, writer, category)
+insert into project_board(board_no, title, content, writer, category)
   values(11, '제목1', '내용', 1, 1);
 insert into myapp_board(board_no, title, content, writer, category)
   values(12, '제목2', '내용', 1, 1);

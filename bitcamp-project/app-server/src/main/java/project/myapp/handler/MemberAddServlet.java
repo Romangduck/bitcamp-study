@@ -26,6 +26,11 @@ public class MemberAddServlet extends HttpServlet {
         m.setHandPhone(request.getParameter("handPhone"));
         m.setPassword(request.getParameter("password"));
         m.setGender(request.getParameter("gender").charAt(0));
+        m.setAge(Integer.parseInt(request.getParameter("age")));
+        m.setHeight(Integer.parseInt(request.getParameter("height")));
+        m.setWeight(Integer.parseInt(request.getParameter("weight")));
+        m.setLeftEye(Float.parseFloat(request.getParameter("leftEye")));
+        m.setRightEye(Float.parseFloat(request.getParameter("rightEye")));
 
         Part photoPart = request.getPart("photo");
         if (photoPart.getSize() > 0) {
@@ -37,11 +42,15 @@ public class MemberAddServlet extends HttpServlet {
 
         try {
             InitServlet.memberDao.insert(m);
+
+
             InitServlet.sqlSessionFactory.openSession(false).commit();
             response.sendRedirect("list");
 
+
         } catch (Exception e) {
             InitServlet.sqlSessionFactory.openSession(false).rollback();
+                System.out.println("실패");
 
             request.setAttribute("error", e);
             request.setAttribute("message", "회원 등록 오류!");
