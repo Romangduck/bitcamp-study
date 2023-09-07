@@ -1,8 +1,9 @@
 package project.myapp.dao;
 
-import java.util.List;
 import project.myapp.vo.AttachedFile;
 import project.myapp.vo.Board;
+
+import java.util.List;
 
 public interface BoardDao {
     void insert(Board board);
@@ -15,4 +16,5 @@ public interface BoardDao {
     int insertFiles(Board board);
     AttachedFile findFileBy(int no);
     int deleteFile(int fileNo);
+    int deleteFiles(int boardNo);
 }

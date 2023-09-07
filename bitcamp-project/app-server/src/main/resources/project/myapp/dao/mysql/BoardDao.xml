@@ -118,10 +118,16 @@
     </select>
 
     <delete id="deleteFile" parameterType="int">
-        delete from project_board_file
-        where
-        board_file_no=#{no}
-    </delete>
+    delete from project_board_file
+    where 
+      board_file_no=#{no}
+  </delete>
+
+  <delete id="deleteFiles" parameterType="int">
+    delete from project_board_file
+    where
+    board_no=#{no}
+  </delete>
 </mapper>
 
 

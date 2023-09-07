@@ -5,25 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="192df256-9059-47e8-9380-c816d584b3f5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../bitcamp-project/app-server/src/main/webapp/calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcamp-project/app-server/src/main/webapp/calendar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eomcs-java" beforeDir="false" afterPath="$PROJECT_DIR$/../eomcs-java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-62-server/doc/data3.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app-62-server/doc/data3.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-common/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-common/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/NcpConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/config/NcpConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/RequestMapping.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/controller/RequestParam.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/listener/ContextLoaderListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/java/bitcamp/myapp/servlet/DispatcherServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/jsp/board/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-server/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,13 +32,47 @@
       </state>
     </system>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2V3e0lzX2wLdh5E74J9umSSyqxa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "00e7384b8366cd1e0186de126ee6427e",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="192df256-9059-47e8-9380-c816d584b3f5" name="Changes" comment="" />
+      <created>1694068969459</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694068969459</updated>
+      <workItem from="1694068970837" duration="1264000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

@@ -17,7 +17,7 @@ public class AuthController {
   @Autowired
   MemberService memberService;
 
-  @RequestMapping("/auth/form")
+  @RequestMapping("/auth")
   public String form() {
     return "/WEB-INF/jsp/auth/form.jsp";
   }

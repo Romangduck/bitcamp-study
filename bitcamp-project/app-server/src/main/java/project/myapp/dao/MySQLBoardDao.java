@@ -1,12 +1,13 @@
 package project.myapp.dao;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import project.myapp.vo.AttachedFile;
 import project.myapp.vo.Board;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MySQLBoardDao implements BoardDao {
 
@@ -74,6 +75,12 @@ public class MySQLBoardDao implements BoardDao {
     public int deleteFile(int no) {
         SqlSession sqlSession = sqlSessionFactory.openSession(false);
         return sqlSession.delete("project.myapp.dao.BoardDao.deleteFile", no);
+    }
+
+    @Override
+    public int deleteFiles(int boardNo) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(false);
+        return sqlSession.delete("project.myapp.dao.BoardDao.deleteFiles", boardNo);
     }
 
 }
