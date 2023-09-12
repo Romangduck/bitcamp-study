@@ -28,7 +28,7 @@
     <tr>
         <td>${member.no}</td>
         <td>
-            <img src='http://bnpxdrusesip19010743.cdn.ntruss.com/member/${member.photo}?type=f&w=30&h=40&faceopt=true&ttype=jpg'>
+            <img src='http://bnpxdrusesip19010743.cdn.ntruss.com/member2/${member.photo}?type=f&w=30&h=40&faceopt=true&ttype=jpg'>
             <a href='/member/detail.jsp?no=${member.no}'>${member.name}</a></td>
         <td>${member.handPhone}</td>
     </tr>

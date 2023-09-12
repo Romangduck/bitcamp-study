@@ -1,4 +1,4 @@
-package project.myapp.handler;
+package project.myapp.controller;
 
 import project.myapp.vo.Member;
 
