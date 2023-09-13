@@ -40,7 +40,7 @@ public class MemberController {
       System.out.println(member);
       if (photofile.getSize() > 0) {
         String uploadFileUrl = ncpObjectStorageService.uploadFile(
-                "bitcamp-nc7-bucket-118", "member/", photofile);
+                "bitcamp-nc7-bucket-24", "member/", photofile);
         member.setPhoto(uploadFileUrl);
       }
       memberService.add(member);
@@ -91,7 +91,7 @@ public class MemberController {
     try {
       if (photofile.getSize() > 0) {
         String uploadFileUrl = ncpObjectStorageService.uploadFile(
-                "bitcamp-nc7-bucket-118", "member/", photofile);
+                "bitcamp-nc7-bucket-24", "member/", photofile);
         member.setPhoto(uploadFileUrl);
       }
 
