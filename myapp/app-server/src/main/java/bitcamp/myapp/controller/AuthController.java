@@ -18,16 +18,16 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/auth")
 public class AuthController {
 
-    {
-        System.out.println("AuthController 생성됨!");
-    }
+  {
+    System.out.println("AuthController 생성됨!");
+  }
 
   @Autowired
   MemberService memberService;
 
   @GetMapping("form")
-  public void form(@CookieValue(defaultValue = "") String email,Model model) {
-      model.addAttribute("email", email);
+  public void form(@CookieValue(defaultValue = "") String email, Model model) {
+    model.addAttribute("email", email);
   }
 
   @PostMapping("login")

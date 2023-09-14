@@ -4,18 +4,12 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
-
-
 group = 'bitcamp'
 version = '0.0.1-SNAPSHOT'
-
-
 
 java {
     sourceCompatibility = '17'
 }
-
-
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -23,43 +17,37 @@ tasks.withType(JavaCompile) {
     targetCompatibility = '17'
 }
 
-
-
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
 }
 
-
-
 repositories {
     mavenCentral()
 }
 
-
-
 dependencies {
-    //Spring JDBC 관련 라이브러리
+    // Spring JDBC 관련 라이브러리
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 
-    //Spring WebMVC 관련 라이브러리
+    // Spring WebMVC 관련 라이브러리
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    //Thymeleaf 관련 라이브러리
+    // Thymeleaf 관련 라이브러리
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
-    //Mybatis 관련 라이브러리
+    // Mybatis 관련 라이브러리
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.1'
 
-    //Lombok 관련 라이브러리
+    // Lombok 관련 라이브러리
 //    compileOnly 'org.projectlombok:lombok'
 //    annotationProcessor 'org.projectlombok:lombok'
 
-    //개발 보조 라이브러리
+    // 개발 보조 라이브러리
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-    //MySQL JDBC 라이브러리
+    // MySQL JDBC 라이브러리
     runtimeOnly 'com.mysql:mysql-connector-j'
 
     // Amazon AWS Java SDK s3
@@ -67,13 +55,10 @@ dependencies {
 
     // Spring 설정을 도와주는 라이브러리
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.3.1'
-
-
 }
-
-
 
 tasks.named('test') {
     useJUnitPlatform()
